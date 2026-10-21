@@ -1,0 +1,9 @@
+langchain
+langgraph
+langchain-community
+langchain-openai
+langchain-text-splitters
+langsmith
+langgraph-cli[inmem]
+pypdf
+python-dotenv
