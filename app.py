@@ -6,7 +6,7 @@ from src.config import LANGSMITH_PROJECT, LANGSMITH_TRACING
 
 def main() -> None:
     print("=" * 60)
-    print("PROITBRIDGE HR Assistant  ·  LangGraph + LangSmith")
+    print("HR Assistant  ·  LangGraph + LangSmith")
     print("=" * 60)
 
     assistant = HRAssistant()

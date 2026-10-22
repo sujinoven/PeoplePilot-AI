@@ -13,7 +13,7 @@ class HRAssistant:
     def ask(self, question: str) -> str:
         inputs = {"messages": [HumanMessage(content=question)]}
         config = {
-            "run_name": "PROITBRIDGE HR Assistant",
+            "run_name": "HR Assistant",
             "tags": ["hr-assistant", "level-5"],
             "metadata": {"session_id": self.session_id, "llm_model": LLM_MODEL},
         }

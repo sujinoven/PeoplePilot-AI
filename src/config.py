@@ -29,7 +29,7 @@ RETRIEVER_K = 4
 # --- Paths ----------------------------------------------------------------
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "data"
-HANDBOOK_PATH = DATA_DIR / "PROITBRIDGE_Employee_Handbook_2026_1.pdf"
+HANDBOOK_PATH = DATA_DIR / "Employee_Handbook.pdf"
 
 
 def check_config() -> None:
