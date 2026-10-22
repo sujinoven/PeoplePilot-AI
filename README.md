@@ -3,7 +3,7 @@
 
 PeoplePilot-AI is an AI-powered HR Assistant built with **Python, LangGraph, LangChain, OpenAI, and Retrieval-Augmented Generation (RAG)**.
 
-The assistant answers employee questions using the **PROITBRIDGE Employee Handbook**, performs HR-related calculations and validations through custom tools, and uses **LangSmith Tracing** for monitoring and debugging agent workflows.
+The assistant answers employee questions using the **Employee Handbook**, performs HR-related calculations and validations through custom tools, and uses **LangSmith Tracing** for monitoring and debugging agent workflows.
 
 ## Features
 
