@@ -2,7 +2,7 @@ import json
 from langchain_core.messages import AIMessage, ToolMessage
 from .state import HRState
 
-
+#An edge is a connection between nodes and it determines which node runs next
 def route_question(state: HRState) -> str:
     """Branch 1: send the question down the right path."""
     return state["route"]  # "policy_question" | "hr_action" | "out_of_scope"

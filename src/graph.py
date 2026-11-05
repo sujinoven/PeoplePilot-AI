@@ -5,9 +5,12 @@ from .edges import after_hr_tools, after_retrieval, route_question
 from .nodes import hr_agent, out_of_scope, policy_answer, retrieve_policy, router, tools
 from .state import HRState
 
+#It is a workflow made up of tools connected by edges
+#Defining State
 graph = StateGraph(HRState)
 
 # ---- 1. Nodes -------------------------------------------------------------
+#Defining Nodes
 graph.add_node("router", router)
 graph.add_node("retrieve_policy", retrieve_policy)
 graph.add_node("policy_answer", policy_answer)
@@ -16,6 +19,7 @@ graph.add_node("tools", tools)
 graph.add_node("out_of_scope", out_of_scope)
 
 # ---- 2. Entry -------------------------------------------------------------
+#Buikding graph(Add Nodes and Connect Edges)
 graph.add_edge(START, "router")
 
 # ---- 3. Branch: router -> one of three paths ------------------------------
@@ -51,4 +55,8 @@ graph.add_edge("policy_answer", END)
 graph.add_edge("out_of_scope", END)
 
 # ---- 8. Compile -----------------------------------------------------------
+#Compile the graph
 app = graph.compile()
+
+
+#Running the graph will be in assistant.py

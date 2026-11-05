@@ -33,7 +33,7 @@ def latest_question(state: HRState) -> str:
             return message.text
     return ""
 
-
+#A node is a task or function
 # ---------------------------------------------------------------------------
 # NODE 1 — router
 # ---------------------------------------------------------------------------

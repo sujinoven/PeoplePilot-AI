@@ -1,4 +1,4 @@
-from langsmith import Client
+from langsmith import Client #provides access to Langsmith functionality
 
 from src.assistant import HRAssistant
 from src.config import LANGSMITH_PROJECT, LANGSMITH_TRACING
@@ -36,8 +36,8 @@ def main() -> None:
             print(f"\nSorry, something went wrong: {error}\n")
 
     # Traces are sent in the background. Wait for the last ones before exiting.
-    if LANGSMITH_TRACING:
-        Client().flush()
+    if LANGSMITH_TRACING:  
+        Client().flush()  #This runs once the conversation ends..Not after every question and it  helps prevent the traces from being lost.
     print("Goodbye.")
 
 

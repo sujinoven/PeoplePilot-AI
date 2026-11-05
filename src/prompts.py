@@ -1,3 +1,7 @@
+#This carries the system prompt, the project's permanent  instruction.and WE'll write only whenever we need an answer from LLM
+#It says things like Role,Context and what it shouldn't do
+
+
 ROUTER_PROMPT = (
     "You are the router for the PROITBRIDGE HR Assistant.\n"
     "Read the employee's question and choose exactly ONE route. Do not answer it.\n\n"
