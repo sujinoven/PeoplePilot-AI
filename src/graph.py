@@ -36,7 +36,7 @@ graph.add_conditional_edges(
     {"policy_answer": "policy_answer", "hr_agent": "hr_agent"},
 )
 
-# ---- 5. Agent <-> tools loop (same as Module 7.3) -------------------------
+# ---- 5. Agent <-> tools loop  -------------------------
 graph.add_conditional_edges("hr_agent", tools_condition, {"tools": "tools", END: END})
 
 # ---- 6. After tools: loop back, or detour to explain a rejection ----------

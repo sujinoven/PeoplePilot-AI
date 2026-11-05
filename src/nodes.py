@@ -94,7 +94,7 @@ def policy_answer(state: HRState) -> dict:
 
 
 # ---------------------------------------------------------------------------
-# NODE 4 — hr_agent  (the same agent pattern from Module 7.3)
+# NODE 4 — hr_agent 
 # ---------------------------------------------------------------------------
 llm_with_tools = llm.bind_tools(HR_TOOLS)
 # Same tools, but the model is not allowed to call them. Used on the second
@@ -116,7 +116,7 @@ def hr_agent(state: HRState) -> dict:
 
 
 # ---------------------------------------------------------------------------
-# NODE 5 — tools  (prebuilt ToolNode, exactly as in Module 7.3)
+# NODE 5 — tools  (prebuilt ToolNode)
 # ---------------------------------------------------------------------------
 tools = ToolNode(HR_TOOLS)
 
