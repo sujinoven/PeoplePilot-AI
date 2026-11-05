@@ -1,9 +1,12 @@
 # PeoplePilot-AI
 ### Agentic HR Assistant using LangGraph, RAG & LangSmith
+Problem Statement
 
-PeoplePilot-AI is an AI-powered HR Assistant built with **Python, LangGraph, LangChain, OpenAI, and Retrieval-Augmented Generation (RAG)**.
+In organizations, employees frequently contact HR for information about leave policies, reimbursements, payroll deadlines, probation periods and allowances.
 
-The assistant answers employee questions using the **Employee Handbook**, performs HR-related calculations and validations through custom tools, and uses **LangSmith Tracing** for monitoring and debugging agent workflows.
+Answering these repetitive questions manually consumes time and effort.
+
+So, the objective of my project is to build an intelligent assistant that can understand employee questions and provide answers or perform HR-related calculations automatically.
 
 ## Features
 
@@ -31,22 +34,24 @@ The assistant answers employee questions using the **Employee Handbook**, perfor
 
 ## System Architecture
 
+LLM decides which tool to call and ToolNode(nodes.py) executes that tool and returns that conversation.
+
 ```text
                     Employee Question
                             |
                             v
-                         Router
+                         Router(LLM)
                             |
             +---------------+---------------+
             |               |               |
             v               v               v
-      Policy Question    HR Action      Out of Scope
+      Policy Question    HR Action      Out of Scope(No LLM)
             |               |               |
             v               v               v
-       RAG Retrieval      HR Agent       Scope Message
+       RAG Retrieval      HR Agent(LLM)      Scope Message
             |               |
             v               v
-       Policy Answer     Custom Tools
+       Policy Answer(LLM)    Custom Tools
             |               |
             |         Validation Result
             |               |
@@ -106,6 +111,7 @@ Employee Handbook (PDF)
           v
     LLM-Generated Answer
 ```
+
 
 The current implementation uses `text-embedding-3-small` for embeddings and `gpt-4.1-mini` for language generation.
 
