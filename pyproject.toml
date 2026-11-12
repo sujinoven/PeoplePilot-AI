@@ -22,4 +22,5 @@ package = false
 [dependency-groups]
 dev = [
     "langgraph-cli[inmem]>=0.4.32",
+    "pytest>=9.2.0",
 ]

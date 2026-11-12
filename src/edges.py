@@ -23,9 +23,11 @@ def after_hr_tools(state: HRState) -> str:
         if isinstance(message, AIMessage):
             break
         if isinstance(message, ToolMessage):
-            # ToolNode stores the tool's dict as a JSON string.
-            result = json.loads(message.content)
-            if result.get("valid") is False:
+            try:
+                result = json.loads(message.content)
+            except (json.JSONDecodeError, TypeError):
+                continue  # tool raised an error; let hr_agent see it and recover
+            if isinstance(result, dict) and result.get("valid") is False:
                 rejected = True
 
     if rejected and not state.get("rejection_explained"):
