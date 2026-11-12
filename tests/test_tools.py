@@ -210,12 +210,7 @@ class TestPayrollDeadline:
     def test_invalid_date_rejected(self):
         assert check_payroll_deadline.invoke({"date": "20/11/2026"})["valid"] is False
 
-    @pytest.mark.xfail(
-        strict=True,
-        reason="Handbook 8.1: salary is credited on the LAST WORKING day. 31 Oct 2026 is a "
-        "Saturday, so the credit date should be Fri 30 Oct. The tool returns the last "
-        "calendar day (2026-10-31) and only mentions 'last working day' in text.",
-    )
+    
     def test_salary_credit_skips_weekends(self):
         r = check_payroll_deadline.invoke({"date": "2026-10-10"})
         assert r["salary_credit_date"].startswith("2026-10-30")

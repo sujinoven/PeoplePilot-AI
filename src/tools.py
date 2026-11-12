@@ -176,6 +176,9 @@ def check_payroll_deadline(date: str) -> dict:
     else:
         first_next_month = datetime(d.year, d.month + 1, 1)
     last_day = first_next_month - timedelta(days=1)
+    last_working_day = last_day
+    while last_working_day.weekday() >= 5:  # 5 = Sat, 6 = Sun
+        last_working_day -= timedelta(days=1)
 
     return {
         "valid": True,
@@ -187,8 +190,8 @@ def check_payroll_deadline(date: str) -> dict:
             if inputs_open
             else "Closed — the 20th cut-off has passed; inputs move to the next cycle."
         ),
-        "salary_credit_date": last_day.strftime("%Y-%m-%d")
-        + " (last working day before 6 PM IST; preceding working day if it is a bank holiday)",
+        "salary_credit_date": last_working_day.strftime("%Y-%m-%d")
++ " (before 6 PM IST; one working day earlier if it is a bank holiday)",
         "payslip_by": first_next_month.strftime("%Y-%m-%d"),
         "policy_reference": "Chapter 8.1",
     }
