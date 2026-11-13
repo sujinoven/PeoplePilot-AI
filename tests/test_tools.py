@@ -175,13 +175,14 @@ class TestProbationEnd:
     def test_bad_date_format_rejected(self, bad):
         assert calculate_probation_end.invoke({"joining_date": bad})["valid"] is False
 
-    @pytest.mark.xfail(
-        strict=True,
-        reason="Handbook 4.5: Manager and above have 180-day probation. The tool takes only "
-        "a joining date, so it can never return 180; it just mentions it in a note.",
-    )
+    
     def test_tool_accepts_a_role_or_grade_input(self):
         assert {"role", "grade", "is_manager"} & set(calculate_probation_end.args)
+
+    def test_manager_probation_is_180_days(self):
+        r = calculate_probation_end.invoke({"joining_date": "2026-01-01", "is_manager": True})
+        assert r["probation_days"] == 180
+        assert r["probation_end_date"] == "2026-06-30"
 
 
 # ---------------------------------------------------------------------------

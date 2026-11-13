@@ -113,13 +113,14 @@ def calculate_earned_leave_accrual(completed_months: int) -> dict:
 # TOOL 3 — Probation End Calculator                    (Handbook Chapter 4.5)
 # ---------------------------------------------------------------------------
 @tool
-def calculate_probation_end(joining_date: str) -> dict:
+def calculate_probation_end(joining_date: str, is_manager: bool = False) -> dict:
     """Calculate the probation end date for a specific joining date (YYYY-MM-DD).
 
     Use for questions like "when does my probation end if I joined 2026-01-01".
     Handbook rule: standard probation is 90 calendar days from the date of
     joining, unless the appointment letter specifies otherwise (for example,
     180 days for Manager and above).
+    is_manager: True for Manager and above (180 days), otherwise False (90 days).
     """
     try:
         start = datetime.strptime(joining_date.strip(), "%Y-%m-%d")
@@ -130,7 +131,7 @@ def calculate_probation_end(joining_date: str) -> dict:
             "policy_reference": "Chapter 4.5",
         }
 
-    probation_days = 90
+    probation_days = 180 if is_manager else 90
     end = start + timedelta(days=probation_days)
 
     return {
@@ -138,8 +139,8 @@ def calculate_probation_end(joining_date: str) -> dict:
         "joining_date": start.strftime("%Y-%m-%d"),
         "probation_days": probation_days,
         "probation_end_date": end.strftime("%Y-%m-%d"),
-        "note": "Standard probation is 90 calendar days unless your appointment "
-        "letter specifies otherwise (e.g., 180 days for Manager and above).",
+        "note": "Standard probation is 90 calendar days; Manager and above have 180. "
+        "It may be extended once, by up to 90 days, with written reasons.",
         "policy_reference": "Chapter 4.5",
     }
 
