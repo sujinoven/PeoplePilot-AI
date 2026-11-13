@@ -116,21 +116,19 @@ class TestValidateLeaveRequest:
         assert r["valid"] is False
         assert "unsupported" in r["reason"].lower()
 
-    @pytest.mark.xfail(
-        strict=True,
-        reason="Handbook 7.4: SL of 3+ consecutive days needs a medical certificate, "
-        "but the tool returns a plain 'valid' with no mention of it.",
-    )
+    
     def test_sl_three_days_mentions_medical_certificate(self):
         assert "certificate" in json.dumps(leave("SL", 3)).lower()
 
-    @pytest.mark.xfail(
-        strict=True,
-        reason="Handbook 7.2: EL has a 0.5-day minimum block, but `days` is typed int, "
-        "so half-day requests raise a validation error.",
-    )
+    
     def test_half_day_el_supported(self):
         assert leave("EL", 0.5, advance=7)["valid"] is True
+
+    def test_sl_under_three_days_has_no_certificate_note(self):
+        assert "certificate" not in json.dumps(leave("SL", 2)).lower()
+
+    def test_non_half_day_increment_rejected(self):
+        assert leave("CL", 1.3)["valid"] is False
 
 
 # ---------------------------------------------------------------------------

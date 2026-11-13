@@ -9,7 +9,7 @@ from langchain_core.tools import tool
 @tool
 def validate_leave_request(
     leave_type: str,
-    days: int,
+    days: float,
     is_on_probation: bool,
     advance_days: int,
 ) -> dict:
@@ -21,7 +21,7 @@ def validate_leave_request(
     (For a general policy question like "What is the casual leave policy?" do not use this tool.)
 
     leave_type: "EL" (Earned), "CL" (Casual) or "SL" (Sick).
-    days: number of leave days requested.
+    days: number of leave days requested (0.5 allowed).
     is_on_probation: True if the employee is still on probation.
     advance_days: working days of advance notice given.
     """
@@ -33,6 +33,12 @@ def validate_leave_request(
             "valid": False,
             "reason": "Leave days must be greater than 0.",
             "policy_reference": "Chapter 7",
+        }
+    if days * 2 != int(days * 2):
+        return {
+            "valid": False,
+            "reason": "Leave must be in blocks of 0.5 day.",
+            "policy_reference": "Chapter 7.2",
         }
 
     if leave_type not in {"EL", "CL", "SL"}:
@@ -71,11 +77,17 @@ def validate_leave_request(
             "reason": "Casual Leave cannot exceed 3 consecutive days.",
             "policy_reference": "Chapter 7.3",
         }
-
+    if leave_type == "SL" and days >= 3:
+        return {
+            "valid": True,
+            "reason": f"SL for {days:g} day(s) is valid, but a medical certificate from a "
+            "registered practitioner is required for 3 or more consecutive days.",
+            "policy_reference": "Chapter 7.4",
+        }
     # --- Valid request ---
     return {
         "valid": True,
-        "reason": f"{leave_type} request for {days} day(s) is valid.",
+        "reason": f"{leave_type} request for {days:g} day(s) is valid.",
         "policy_reference": "Chapter 7",
     }
 
