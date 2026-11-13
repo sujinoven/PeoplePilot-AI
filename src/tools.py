@@ -325,12 +325,19 @@ def calculate_remote_work_allowance(work_model: str) -> dict:
 # TOOL 7 — Travel Daily Allowance                      (Handbook Chapter 17.3)
 # ---------------------------------------------------------------------------
 @tool
-def calculate_travel_daily_allowance(location_type: str, grade: int) -> dict:
+def calculate_travel_daily_allowance(
+    location_type: str,
+    grade: int,
+    is_half_day: bool = False,
+    meals_provided: int = 0,
+) -> dict:
     """Return the travel daily allowance for a SPECIFIC location and grade.
 
     Use for questions like "travel allowance for Grade 3 in a metro".
     location_type: metro, other_india, asia_middle_east or europe_americas.
     grade: employee grade from 1 to 5.
+    is_half_day: True for a trip under 8 hours with no overnight stay.
+    meals_provided: number of meals (0 to 3) provided by the client, conference or hotel.
     Values are taken directly from Handbook Chapter 17.3.
     """
     location = location_type.lower().strip()
@@ -357,18 +364,30 @@ def calculate_travel_daily_allowance(location_type: str, grade: int) -> dict:
             "reason": "Grade must be between 1 and 5.",
             "policy_reference": "Chapter 17.3",
         }
-
+    if meals_provided not in (0, 1, 2, 3):
+        return {
+            "valid": False,
+            "reason": "meals_provided must be between 0 and 3.",
+            "policy_reference": "Chapter 17.3",
+        }
     band = "1-2" if grade in (1, 2) else "3" if grade == 3 else "4-5"
     amount, currency = rates[location][band]
+    amount = amount * (3 - meals_provided) / 3   # handbook: minus 1/3 per meal
+    if is_half_day:
+        amount = amount * 0.5
+    amount = round(amount, 2)
 
-    return {
-        "valid": True,
-        "location_type": location,
-        "grade": grade,
-        "daily_allowance": amount,
-        "currency": currency,
-        "policy_reference": "Chapter 17.3",
+    result = {
+    "valid": True,
+    "location_type": location,
+    "grade": grade,
+    "daily_allowance": amount,
+    "currency": currency,
+    "policy_reference": "Chapter 17.3",
     }
+    if is_half_day:
+        result["assumption"] = "Half-day = 50% of the daily rate; the handbook does not state the fraction."
+    return result
 
 
 # ---------------------------------------------------------------------------

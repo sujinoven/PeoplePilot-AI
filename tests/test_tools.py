@@ -329,10 +329,25 @@ class TestTravelDailyAllowance:
         r = calculate_travel_daily_allowance.invoke({"location_type": "mars", "grade": 3})
         assert r["valid"] is False
 
-    @pytest.mark.xfail(
-        strict=True,
-        reason="Handbook 17.3: half-day allowance for short trips, and a one-third cut per "
-        "meal provided. The tool has no inputs for either, so it always returns the full rate.",
-    )
+
     def test_supports_half_day_or_meals_provided(self):
         assert {"half_day", "meals_provided"} & set(calculate_travel_daily_allowance.args)
+
+    def test_one_meal_provided_cuts_one_third(self):
+        r = calculate_travel_daily_allowance.invoke(
+            {"location_type": "metro", "grade": 3, "meals_provided": 1}
+        )
+        assert r["daily_allowance"] == 1066.67   # 1600 * 2/3
+
+    def test_meals_provided_out_of_range_rejected(self):
+        r = calculate_travel_daily_allowance.invoke(
+            {"location_type": "metro", "grade": 3, "meals_provided": 4}
+        )
+        assert r["valid"] is False
+
+    def test_half_day_is_flagged_as_assumption(self):
+        r = calculate_travel_daily_allowance.invoke(
+            {"location_type": "metro", "grade": 3, "is_half_day": True}
+        )
+        assert r["daily_allowance"] == 800.0
+        assert "assumption" in r
