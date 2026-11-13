@@ -14,6 +14,7 @@ from .prompts import (
 from .rag import build_retriever, format_docs
 from .state import HRState, Route
 from .tools import HR_TOOLS
+from .history import routing_history
 
 # ---------------------------------------------------------------------------
 # Shared objects — built ONCE when this file is imported, used by every node.
@@ -49,8 +50,8 @@ router_llm = llm.with_structured_output(RouteDecision)
 
 def router(state: HRState) -> dict:
     decision = router_llm.invoke(
-        [SystemMessage(content=ROUTER_PROMPT), HumanMessage(content=latest_question(state))]
-    )
+    [SystemMessage(content=ROUTER_PROMPT), *routing_history(state["messages"])]
+)
     # Reset the per-question keys so every new question starts clean.
     return {
         "route": decision.route,

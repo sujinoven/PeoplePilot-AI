@@ -24,6 +24,10 @@ ROUTER_PROMPT = (
     "KEY DISTINCTION:\n"
     "  'How many consecutive CL days are allowed?'   -> policy_question (asks the RULE)\n"
     "  'Can I take 4 days of casual leave in a row?' -> hr_action (asks about a SPECIFIC request)"
+
+        "\n\nCONVERSATION: Use the earlier messages for context. A short reply that "
+    "answers the assistant's last question (e.g. '5 days', 'yes, I am on probation') "
+    "continues the previous route."
 )
 
 POLICY_ANSWER_PROMPT = (
