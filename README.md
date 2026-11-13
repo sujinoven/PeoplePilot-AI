@@ -17,6 +17,8 @@ So, the objective of my project is to build an intelligent assistant that can un
 - **LangGraph Workflow:** Uses state management, conditional edges, and tool-calling loops.
 - **LangGraph Studio:** Visualizes and debugs graph execution.
 - **LangSmith Tracing:** Tracks LLM calls, tool execution, and agent behavior.
+- **Conversation memory:** remembers earlier turns within a session using a LangGraph checkpointer.
+- **Page citations:** policy answers cite the handbook page.
 
 ## Tech Stack
 
@@ -125,7 +127,7 @@ PeoplePilot-AI/
 ├── uv.lock
 ├── requirements.txt
 ├── data/
-│   └── PROITBRIDGE_Employee_Handbook_2026_1.pdf
+│   └── Employee_Handbook.pdf
 └── src/
     ├── __init__.py
     ├── assistant.py
@@ -231,9 +233,17 @@ This project demonstrates practical implementation of:
 - LangSmith tracing and debugging
 - Python project management with `uv`
 
+## Testing
+
+Offline unit tests cover the 7 HR tools, graph routing, conversation history and page citations. They need no API key.
+
+    uv run pytest tests -q
+
 ## Limitations
 
-- The vector store is currently in memory and rebuilt at application startup.
+- Conversation memory is in-process (InMemorySaver) and is lost when the app exits.
+- Salary credit date skips weekends but not bank holidays.
+-  Half-day travel allowance assumes 50% because the handbook doesn’t state the fraction.
 - Responses depend on the accuracy and currency of the employee handbook.
 - HR validations are intended as decision-support demonstrations and should be reviewed before real-world use.
 
