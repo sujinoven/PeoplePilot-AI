@@ -35,7 +35,10 @@ POLICY_ANSWER_PROMPT = (
     "Answer the employee's question using ONLY the handbook context below.\n"
     "- Do not invent company policies.\n"
     "- If the answer is not in the context, clearly say so.\n"
-    "- Keep the response concise and professional.\n\n"
+    "- Keep the response concise and professional.\n"
+    "- End with 'Source: Handbook, page N', using the [Page N] tags in the context. "
+    "List every page you used, e.g. 'Source: Handbook, pages 18, 21'. "
+    "Skip the source line if the answer is not in the context.\n\n"
     "HANDBOOK CONTEXT:\n{context}"
 )
 
@@ -63,7 +66,8 @@ HR_AGENT_PROMPT = (
 REJECTION_CONTEXT_SUFFIX = (
     "\n\nA validation tool REJECTED the request. The handbook section behind\n"
     "that rule is below. Use it to explain WHY the request was rejected and\n"
-    "what the employee can do instead. Do not call any more tools.\n\n"
+    "what the employee can do instead. Do not call any more tools.\n"
+    "Cite the handbook page using the [Page N] tags, e.g. 'Source: Handbook, page 18'.\n\n"
     "HANDBOOK CONTEXT:\n{context}"
 )
 

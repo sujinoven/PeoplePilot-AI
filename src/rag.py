@@ -40,4 +40,9 @@ def build_retriever():
 
 
 def format_docs(docs: list[Document]) -> str:
-    return "\n\n".join(doc.page_content for doc in docs)
+    parts = []
+    for doc in docs:
+        page = doc.metadata.get("page")  # PyPDFLoader pages are 0-indexed
+        label = f"[Page {page + 1}]\n" if isinstance(page, int) else ""
+        parts.append(label + doc.page_content)
+    return "\n\n".join(parts)
