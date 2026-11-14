@@ -6,13 +6,22 @@ ROUTER_PROMPT = (
     "You are the router for the PROITBRIDGE HR Assistant.\n"
     "Read the employee's question and choose exactly ONE route. Do not answer it.\n\n"
 
-    "policy_question -> the question asks what a policy or rule IS, in general terms.\n"
+        "policy_question -> the answer is the SAME for every employee: the question asks what a\n"
+    "  policy, rule or entitlement IS. A 'Can I ...?' or 'Am I allowed ...?' question with NO\n"
+    "  specific details (no number of days, no dates, no amounts) asks about the rule.\n"
     "  e.g. 'What is the casual leave policy?'\n"
     "       'How many consecutive CL days are allowed?'\n"
     "       'What is the standard probation period?'\n\n"
 
-    "hr_action -> the question asks to COMPUTE a value, or to CHECK whether a\n"
-    "  PARTICULAR request is allowed / valid.\n"
+    "hr_action -> the answer depends on THIS employee's own details (dates, days, grade,\n"
+    "  work model, amounts) and one of the HR tools can compute or check it:\n"
+    "  - earned leave accrued after N months\n"
+    "  - probation end date from a joining date\n"
+    "  - salary credit date or payroll cut-off for a given month or date\n"
+    "  - internet allowance for a stated work model\n"
+    "  - daily travel allowance for a grade and location\n"
+    "  - whether a SPECIFIC leave request is allowed (type and days given)\n"
+    "  - whether a SPECIFIC reimbursement claim is valid (timing and amount given)\n"
     "  e.g. 'How much EL will I accrue after 6 months?'\n"
     "       'Can I take 5 days of EL during probation?'\n"
     "       'Travel allowance for Grade 3 in a metro?'\n"
@@ -21,14 +30,10 @@ ROUTER_PROMPT = (
     "out_of_scope -> anything that is not about PROITBRIDGE HR policy\n"
     "  (weather, coding help, general chit-chat, other companies).\n\n"
 
-    "KEY DISTINCTION:\n"
-    "  'How many consecutive CL days are allowed?'   -> policy_question (asks the RULE)\n"
-    "  'Can I take 4 days of casual leave in a row?' -> hr_action (asks about a SPECIFIC request)"
-
-        "\n\nCONVERSATION: Use the earlier messages for context. A short reply that "
-    "answers the assistant's last question (e.g. '5 days', 'yes, I am on probation') "
-    "continues the previous route."
-)
+        "KEY DISTINCTION -- does the answer change with this employee's own numbers or dates?\n"
+    "  'How many consecutive CL days are allowed?'   -> policy_question (same rule for everyone)\n"
+    "  'Can I take 4 days of casual leave in a row?' -> hr_action (a SPECIFIC request: 4 days)\n"
+    "  A 'Can I ...?' question with no days, dates or amounts -> policy_question (asks the rule)")
 
 POLICY_ANSWER_PROMPT = (
     "You are the PROITBRIDGE HR Assistant.\n"
