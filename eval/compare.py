@@ -11,6 +11,7 @@ from collections import defaultdict
 from pathlib import Path
 
 from eval.evaluators import METRICS
+from eval.run_eval import HEADLINE
 
 
 def _load(path) -> dict:
@@ -38,7 +39,22 @@ def compare(before: dict, after: dict) -> str:
             continue
         delta = (a["rate"] - b["rate"]) * 100
         lines.append(f"{m:<18}{b['rate'] * 100:>8.1f}%{a['rate'] * 100:>8.1f}%{delta:>+9.1f}")
+    # Per split, so a gain on the cases you tuned on can't hide a flat result on held-out cases.
+    bs = before["summary"].get("by_split") or {"core": before["summary"]["overall"]}
+    as_ = after["summary"].get("by_split") or {"core": after["summary"]["overall"]}
+    for split in sorted(set(bs) & set(as_)):
+        lines.append("")
+        lines.append(f"[{split}]")
+        for m in HEADLINE:
+            b, a = bs[split].get(m), as_[split].get(m)
+            if not b or not a or b["rate"] is None or a["rate"] is None:
+                continue
+            lines.append(
+                f"  {m:<16}{b['passed']:>3}/{b['n']:<3} -> {a['passed']:>3}/{a['n']:<3}"
+                f"  ({b['rate'] * 100:.1f}% -> {a['rate'] * 100:.1f}%)"
+            )
     bl, al = before["summary"]["latency_s"], after["summary"]["latency_s"]
+    lines.append("")
     lines.append("-" * 46)
     lines.append(f"latency p50: {bl['p50']}s -> {al['p50']}s   p95: {bl['p95']}s -> {al['p95']}s")
 

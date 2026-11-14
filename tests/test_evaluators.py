@@ -14,6 +14,7 @@ from eval.compare import compare
 from eval.evaluators import (
     METRICS,
     CaseResult,
+    asks_for_details,
     cited_pages,
     evaluate_case,
     result_from_state,
@@ -450,3 +451,60 @@ def test_compare_reports_improvements_and_regressions(tmp_path):
     assert "Regressed (0): none" in text
     reverse = compare(after, before)
     assert "Regressed (0)" not in reverse and "Fixed (0): none" in reverse
+
+
+# ---------------------------------------------------------------- asking for details without a "?"
+@pytest.mark.parametrize(
+    "answer, expected",
+    [
+        ("What is your grade and where are you travelling?", True),
+        ("Please share your grade and the location of the trip.", True),
+        ("Kindly provide your joining date.", True),
+        ("To check this I'll need the number of days and the notice you plan to give.", True),
+        ("Let me know your grade.", True),
+        ("Yes, you can take leave next week.", False),
+        ("No, Earned Leave cannot be taken during probation.", False),
+        ("Your allowance is Rs 1,600 per day.", False),
+    ],
+)
+def test_asks_for_details(answer, expected):
+    assert asks_for_details(answer) is expected
+
+
+def test_clarification_accepts_a_polite_request_without_a_question_mark():
+    case = BY_ID["C03"]
+    res = perfect_result(case)
+    res.answer = "Please share your grade and the type of location you are travelling to."
+    assert evaluate_case(case, res)["clarification"].score == 1.0
+
+
+# ---------------------------------------------------------------- core / challenge splits
+def test_main_can_run_only_the_challenge_split(tmp_path):
+    p = main(["--out-dir", str(tmp_path), "--no-judge", "--split", "challenge"], app=FakeApp())
+    cases = json.loads(p.read_text(encoding="utf-8"))["cases"]
+    assert cases and {c["split"] for c in cases} == {"challenge"}
+
+
+def test_summary_reports_each_split_separately(tmp_path):
+    p = main(["--out-dir", str(tmp_path), "--no-judge"], app=FakeApp())
+    summary = json.loads(p.read_text(encoding="utf-8"))["summary"]
+    assert set(summary["by_split"]) == {"core", "challenge"}
+    assert summary["by_split"]["core"]["routing"]["n"] == 60
+    assert "headline metrics by split" in format_summary(summary)
+
+
+def test_compare_prints_a_section_per_split(tmp_path):
+    before = json.loads(main(["--label", "b", "--out-dir", str(tmp_path)], app=FakeApp(degraded_every=2),
+                             judge=always_pass).read_text(encoding="utf-8"))
+    after = json.loads(main(["--label", "a", "--out-dir", str(tmp_path)], app=FakeApp(),
+                            judge=always_pass).read_text(encoding="utf-8"))
+    text = compare(before, after)
+    assert "[core]" in text and "[challenge]" in text
+
+
+def test_compare_still_works_on_runs_saved_before_splits_existed(tmp_path):
+    new = json.loads(main(["--label", "n", "--out-dir", str(tmp_path)], app=FakeApp(),
+                          judge=always_pass).read_text(encoding="utf-8"))
+    old = json.loads(json.dumps(new))
+    del old["summary"]["by_split"]
+    assert "[core]" in compare(old, new)

@@ -52,6 +52,7 @@ def run_cases(cases, invoke, judge=None, workers: int = 1, repeats: int = 1) -> 
         scores = evaluate_case(case, res, judge)
         return {
             "id": case["id"],
+            "split": case.get("split", "core"),
             "category": case["category"],
             "question": case["question"],
             "repeat": repeat,
@@ -90,11 +91,14 @@ def _collect(records: list[dict]) -> dict[str, list[float]]:
 
 def summarize(records: list[dict]) -> dict:
     by_category = defaultdict(list)
+    by_split = defaultdict(list)
     for rec in records:
         by_category[rec["category"]].append(rec)
+        by_split[rec.get("split", "core")].append(rec)
     latencies = sorted(r["latency_s"] for r in records)
     return {
         "overall": {m: _rate(v) for m, v in _collect(records).items()},
+        "by_split": {s: {m: _rate(v) for m, v in _collect(recs).items()} for s, recs in by_split.items()},
         "by_category": {
             cat: {m: _rate(v) for m, v in _collect(recs).items()} for cat, recs in by_category.items()
         },
@@ -115,6 +119,17 @@ def format_summary(summary: dict) -> str:
         s = summary["overall"][m]
         rate = f"{s['rate'] * 100:.1f}%" if s["rate"] is not None else "-"
         lines.append(f"{m:<18}{s['n']:>5}{s['passed']:>8}{rate:>9}")
+    splits = summary.get("by_split", {})
+    if len(splits) > 1:
+        lines.append("-" * 40)
+        lines.append("headline metrics by split (passed/n):")
+        for split in sorted(splits):
+            cells = [
+                f"{m} {splits[split][m]['passed']}/{splits[split][m]['n']}"
+                for m in HEADLINE
+                if m in splits[split]
+            ]
+            lines.append(f"  {split}: " + ", ".join(cells))
     lat = summary["latency_s"]
     lines.append("-" * 40)
     lines.append(f"latency per question: mean {lat['mean']}s, p50 {lat['p50']}s, p95 {lat['p95']}s")
@@ -219,6 +234,8 @@ def main(argv=None, app=None, judge=None) -> Path:
     p = argparse.ArgumentParser(description="Run the PeoplePilot evaluation.")
     p.add_argument("--label", default="run", help="short name for this run, e.g. baseline")
     p.add_argument("--ids", help="comma-separated case ids to run, e.g. A04,A07")
+    p.add_argument("--split", default="all", choices=["all", "core", "challenge"],
+                   help="core = the frozen 60-case baseline set; challenge = the harder held-out cases")
     p.add_argument("--category", help="only run this category")
     p.add_argument("--limit", type=int, help="only run the first N selected cases")
     p.add_argument("--repeats", type=int, default=1, help="run each case N times (LLMs are not perfectly repeatable)")
@@ -232,6 +249,8 @@ def main(argv=None, app=None, judge=None) -> Path:
     if args.ids:
         wanted = {i.strip() for i in args.ids.split(",")}
         cases = [c for c in cases if c["id"] in wanted]
+    if args.split != "all":
+        cases = [c for c in cases if c.get("split", "core") == args.split]
     if args.category:
         cases = [c for c in cases if c["category"] == args.category]
     if args.limit:

@@ -186,13 +186,27 @@ def score_tool_args(case: dict, res: CaseResult) -> Score:
     return Score(0.0, "; ".join(best or []))
 
 
+# "Please share your grade" asks for details just as well as "What is your grade?" does, so a
+# question mark is not required. A plain statement like "Yes, you can take leave." does not match.
+_ASKS_FOR_INFO = re.compile(
+    r"\?"
+    r"|\b(?:please|kindly)\s+(?:provide|share|tell|let me know|specify|confirm|give|send|mention)\b"
+    r"|\b(?:i(?:['’]ll| will)? need|could you|can you|would you|let me know)\b",
+    re.IGNORECASE,
+)
+
+
+def asks_for_details(answer: str) -> bool:
+    return bool(_ASKS_FOR_INFO.search(answer))
+
+
 def score_clarification(case: dict, res: CaseResult) -> Score:
     if case["category"] != "needs_clarification":
         return NOT_APPLICABLE
     if res.tool_calls:
         return Score(0.0, f"called {[c['name'] for c in res.tool_calls]} instead of asking")
-    if "?" not in res.answer:
-        return Score(0.0, "no question asked")
+    if not asks_for_details(res.answer):
+        return Score(0.0, "the answer does not ask for the missing details")
     return Score(1.0)
 
 

@@ -27,7 +27,7 @@ REQUIRED = {
     "id", "category", "question", "expected_route", "expected_tool", "tool_args",
     "args_to_check", "expected_result", "reference_answer", "must_include", "evidence",
     "expected_pages", "handbook_section", "expect_clarification", "expect_not_found",
-    "absence_terms", "tags",
+    "absence_terms", "tags", "split",
 }
 
 
@@ -75,6 +75,16 @@ def test_dataset_covers_every_category_and_every_tool():
     assert len(CASES) >= 50
     assert {c["category"] for c in CASES} == CATEGORIES
     assert {c["expected_tool"] for c in ACTIONS} == set(TOOLS)
+
+
+def test_core_split_is_frozen_and_a_challenge_split_exists():
+    core = [c for c in CASES if c["split"] == "core"]
+    challenge = [c for c in CASES if c["split"] == "challenge"]
+    assert len(core) == 60, "the core split is the baseline: never add or remove cases from it"
+    assert len(challenge) >= 20
+    assert {c["split"] for c in CASES} == {"core", "challenge"}
+    assert all(c["id"].startswith("X") for c in challenge)
+    assert not any(c["id"].startswith("X") for c in core)
 
 
 @pytest.mark.parametrize("case", CASES, ids=ids(CASES))
