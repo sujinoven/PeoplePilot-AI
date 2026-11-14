@@ -21,6 +21,7 @@ from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 from pathlib import Path
+import hashlib
 
 from eval.evaluators import METRICS, CaseResult, evaluate_case, result_from_state, retrieved_pages
 
@@ -228,6 +229,21 @@ def _git_commit() -> str:
         return "unknown"
 
 
+def _source_fingerprint() -> dict:
+    """Hash of every file in src/, plus whether src/ differs from the last commit."""
+    files = sorted((ROOT / "src").glob("*.py"))
+    digest = hashlib.sha256(b"".join(f.read_bytes() for f in files)).hexdigest()[:10]
+    try:
+        out = subprocess.run(
+            ["git", "status", "--porcelain", "--", "src"],
+            cwd=ROOT, capture_output=True, text=True, timeout=5,
+        ).stdout
+        dirty = bool(out.strip())
+    except Exception:
+        dirty = None
+    return {"source_hash": digest, "src_uncommitted_changes": dirty}
+
+
 # --------------------------------------------------------------------------- command line
 def main(argv=None, app=None, judge=None) -> Path:
     """`app` and `judge` can be injected for testing; by default the real ones are built."""
@@ -271,6 +287,7 @@ def main(argv=None, app=None, judge=None) -> Path:
             "chunk_overlap": getattr(cfg, "CHUNK_OVERLAP", None),
             "retriever_k": getattr(cfg, "RETRIEVER_K", None),
         }
+        config.update(_source_fingerprint())
     if judge is None and not args.no_judge:
         judge = make_judge(args.judge_model)
         config["judge_model"] = args.judge_model

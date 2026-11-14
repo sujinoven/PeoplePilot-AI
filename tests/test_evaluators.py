@@ -508,3 +508,9 @@ def test_compare_still_works_on_runs_saved_before_splits_existed(tmp_path):
     old = json.loads(json.dumps(new))
     del old["summary"]["by_split"]
     assert "[core]" in compare(old, new)
+def test_source_fingerprint_is_recorded():
+    from eval.run_eval import _source_fingerprint
+
+    fp = _source_fingerprint()
+    assert len(fp["source_hash"]) == 10
+    assert fp["src_uncommitted_changes"] in (True, False, None)
