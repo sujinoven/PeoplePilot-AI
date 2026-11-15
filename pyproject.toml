@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies =[
     "colorama>=0.4.6",
+    "fastapi>=0.163.1",
     "langchain>=1.4.3",
     "langchain-community>=0.4.2",
     "langchain-openai>=1.6.6",
@@ -15,12 +16,14 @@ dependencies =[
     "langsmith>=0.14.1",
     "pypdf>=6.19.0",
     "python-dotenv>=1.2.3",
+    "uvicorn[standard]>=0.54.0",
 ]
 [tool.uv]
 package = false
 
 [dependency-groups]
 dev = [
+    "httpx>=0.28.1",
     "langgraph-cli[inmem]>=0.4.32",
     "pytest>=9.2.0",
 ]
