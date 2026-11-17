@@ -7,6 +7,7 @@ tests pass, a low score in a real run means the ASSISTANT is wrong, not the scor
 
 import json
 
+from langchain_openai import data
 import pytest
 from langchain_core.messages import AIMessage, HumanMessage, ToolMessage
 
@@ -413,7 +414,7 @@ def test_main_writes_a_complete_results_file(tmp_path):
     data = json.loads(path.read_text(encoding="utf-8"))
     assert path.name.endswith("_unit.json")
     assert data["label"] == "unit" and data["judge_enabled"] is True
-    assert len(data["cases"]) == len(CASES)
+    assert len(data["cases"]) == len([c for c in CASES if c["split"] != "holdout"])
     assert all(v["rate"] == 1.0 for v in data["summary"]["overall"].values())
 
 
@@ -483,6 +484,17 @@ def test_main_can_run_only_the_challenge_split(tmp_path):
     p = main(["--out-dir", str(tmp_path), "--no-judge", "--split", "challenge"], app=FakeApp())
     cases = json.loads(p.read_text(encoding="utf-8"))["cases"]
     assert cases and {c["split"] for c in cases} == {"challenge"}
+
+def test_the_default_run_leaves_the_holdout_split_out(tmp_path):
+    p = main(["--out-dir", str(tmp_path), "--no-judge"], app=FakeApp())
+    cases = json.loads(p.read_text(encoding="utf-8"))["cases"]
+    assert "holdout" not in {c["split"] for c in cases}
+
+
+def test_main_can_run_only_the_holdout_split(tmp_path):
+    p = main(["--out-dir", str(tmp_path), "--no-judge", "--split", "holdout"], app=FakeApp())
+    cases = json.loads(p.read_text(encoding="utf-8"))["cases"]
+    assert cases and {c["split"] for c in cases} == {"holdout"}
 
 
 def test_summary_reports_each_split_separately(tmp_path):

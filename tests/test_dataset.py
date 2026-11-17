@@ -77,14 +77,17 @@ def test_dataset_covers_every_category_and_every_tool():
     assert {c["expected_tool"] for c in ACTIONS} == set(TOOLS)
 
 
-def test_core_split_is_frozen_and_a_challenge_split_exists():
+def test_core_split_is_frozen_and_challenge_and_holdout_splits_exist():
     core = [c for c in CASES if c["split"] == "core"]
     challenge = [c for c in CASES if c["split"] == "challenge"]
+    holdout = [c for c in CASES if c["split"] == "holdout"]
     assert len(core) == 60, "the core split is the baseline: never add or remove cases from it"
     assert len(challenge) >= 20
-    assert {c["split"] for c in CASES} == {"core", "challenge"}
+    assert len(holdout) >= 20, "the holdout split is the fresh, never-tuned-on set"
+    assert {c["split"] for c in CASES} == {"core", "challenge", "holdout"}
     assert all(c["id"].startswith("X") for c in challenge)
-    assert not any(c["id"].startswith("X") for c in core)
+    assert all(c["id"].startswith("H") for c in holdout)
+    assert not any(c["id"].startswith(("X", "H")) for c in core)
 
 
 @pytest.mark.parametrize("case", CASES, ids=ids(CASES))

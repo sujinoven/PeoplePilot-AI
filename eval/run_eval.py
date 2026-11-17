@@ -250,8 +250,9 @@ def main(argv=None, app=None, judge=None) -> Path:
     p = argparse.ArgumentParser(description="Run the PeoplePilot evaluation.")
     p.add_argument("--label", default="run", help="short name for this run, e.g. baseline")
     p.add_argument("--ids", help="comma-separated case ids to run, e.g. A04,A07")
-    p.add_argument("--split", default="all", choices=["all", "core", "challenge"],
-                   help="core = the frozen 60-case baseline set; challenge = the harder held-out cases")
+    p.add_argument("--split", default="all", choices=["all", "core", "challenge", "holdout"],
+                   help="core = the frozen 60-case baseline set; challenge = harder cases; "
+                        "holdout = fresh cases, run only on request; all = core + challenge")
     p.add_argument("--category", help="only run this category")
     p.add_argument("--limit", type=int, help="only run the first N selected cases")
     p.add_argument("--repeats", type=int, default=1, help="run each case N times (LLMs are not perfectly repeatable)")
@@ -265,7 +266,9 @@ def main(argv=None, app=None, judge=None) -> Path:
     if args.ids:
         wanted = {i.strip() for i in args.ids.split(",")}
         cases = [c for c in cases if c["id"] in wanted]
-    if args.split != "all":
+    if args.split == "all":
+        cases = [c for c in cases if c.get("split", "core") != "holdout"]  # holdout only when asked for
+    else:
         cases = [c for c in cases if c.get("split", "core") == args.split]
     if args.category:
         cases = [c for c in cases if c["category"] == args.category]
