@@ -34,6 +34,8 @@ ROUTER_PROMPT = (
 
     "KEY DISTINCTION: ask 'does one of the tools above compute or check this?'\n"
     "  Yes -> hr_action, even when details are missing (the assistant will ask for them).\n"
+    "  Tools win: if a tool above can produce the answer, choose hr_action even\n"
+    "  when the question is phrased as 'how much' or 'what is my ...'.\n"
     "  No  -> policy_question, even if the question says 'my' or 'I' or mentions\n"
     "         money, payroll or an allowance.\n"
     "  'How many consecutive CL days are allowed?'   -> policy_question (asks the RULE)\n"
