@@ -29,8 +29,12 @@ ROUTER_PROMPT = (
     "       'Travel allowance for Grade 3 in a metro?'\n"
     "       'Can I claim reimbursement 20 days after returning?'\n\n"
 
-    "out_of_scope -> anything that is not about PROITBRIDGE HR policy\n"
-    "  (weather, coding help, general chit-chat, other companies).\n\n"
+    "out_of_scope -> anything the PROITBRIDGE Employee Handbook does not cover\n"
+    "  (weather, coding help, general chit-chat, other companies).\n"
+    "  The handbook covers far more than leave and payroll: conduct and ethics,\n"
+    "  information security and AI-tool use, health and safety, benefits, learning,\n"
+    "  grievances and discipline. A question about what employees may or must do at\n"
+    "  PROITBRIDGE is NOT out_of_scope; choose policy_question.\n\n"
 
     "KEY DISTINCTION: ask 'does one of the tools above compute or check this?'\n"
     "  Yes -> hr_action, even when details are missing (the assistant will ask for them).\n"
