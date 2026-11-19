@@ -1,0 +1,1010 @@
+{
+  "label": "hr-pointer",
+  "timestamp": "20261117-112033",
+  "git_commit": "7c45c82",
+  "config": {
+    "llm_model": "gpt-4.1-mini",
+    "embedding_model": "text-embedding-3-small",
+    "chunk_size": 1000,
+    "chunk_overlap": 150,
+    "retriever_k": 4,
+    "source_hash": "8cfe8757af",
+    "src_uncommitted_changes": false,
+    "judge_model": "gpt-4.1"
+  },
+  "judge_enabled": true,
+  "summary": {
+    "overall": {
+      "routing": {
+        "n": 15,
+        "passed": 15,
+        "rate": 1.0
+      },
+      "tool_choice": {
+        "n": 15,
+        "passed": 15,
+        "rate": 1.0
+      },
+      "answer_correct": {
+        "n": 15,
+        "passed": 14,
+        "rate": 0.9333
+      },
+      "faithful": {
+        "n": 15,
+        "passed": 15,
+        "rate": 1.0
+      }
+    },
+    "by_split": {
+      "core": {
+        "routing": {
+          "n": 9,
+          "passed": 9,
+          "rate": 1.0
+        },
+        "tool_choice": {
+          "n": 9,
+          "passed": 9,
+          "rate": 1.0
+        },
+        "answer_correct": {
+          "n": 9,
+          "passed": 9,
+          "rate": 1.0
+        },
+        "faithful": {
+          "n": 9,
+          "passed": 9,
+          "rate": 1.0
+        }
+      },
+      "challenge": {
+        "routing": {
+          "n": 6,
+          "passed": 6,
+          "rate": 1.0
+        },
+        "tool_choice": {
+          "n": 6,
+          "passed": 6,
+          "rate": 1.0
+        },
+        "answer_correct": {
+          "n": 6,
+          "passed": 5,
+          "rate": 0.8333
+        },
+        "faithful": {
+          "n": 6,
+          "passed": 6,
+          "rate": 1.0
+        }
+      }
+    },
+    "by_category": {
+      "not_in_handbook": {
+        "routing": {
+          "n": 15,
+          "passed": 15,
+          "rate": 1.0
+        },
+        "tool_choice": {
+          "n": 15,
+          "passed": 15,
+          "rate": 1.0
+        },
+        "answer_correct": {
+          "n": 15,
+          "passed": 14,
+          "rate": 0.9333
+        },
+        "faithful": {
+          "n": 15,
+          "passed": 15,
+          "rate": 1.0
+        }
+      }
+    },
+    "latency_s": {
+      "mean": 2.39,
+      "p50": 2.3,
+      "p95": 2.88
+    },
+    "runs": 15,
+    "errors": 0
+  },
+  "cases": [
+    {
+      "id": "N01",
+      "split": "core",
+      "category": "not_in_handbook",
+      "question": "Does PROITBRIDGE offer ESOPs or stock options to employees?",
+      "repeat": 0,
+      "answer": "The handbook does not provide information about ESOPs or stock options for employees. Please contact HR directly for details on this matter.",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        26,
+        35,
+        39,
+        41
+      ],
+      "latency_s": 2.88,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states the handbook lacks this information and refers the question to HR, as required."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The context does not contain any information about ESOPs or stock options."
+        }
+      }
+    },
+    {
+      "id": "N01",
+      "split": "core",
+      "category": "not_in_handbook",
+      "question": "Does PROITBRIDGE offer ESOPs or stock options to employees?",
+      "repeat": 1,
+      "answer": "The handbook does not provide information about ESOPs or stock options for employees. Please contact HR directly for details on this matter.",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        26,
+        35,
+        39,
+        41
+      ],
+      "latency_s": 3.28,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states the handbook does not mention ESOPs or stock options and refers the question to HR, as required."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The provided context does not mention ESOPs or stock options, so the answer is supported."
+        }
+      }
+    },
+    {
+      "id": "N01",
+      "split": "core",
+      "category": "not_in_handbook",
+      "question": "Does PROITBRIDGE offer ESOPs or stock options to employees?",
+      "repeat": 2,
+      "answer": "The handbook does not provide information about ESOPs or stock options for employees. Please contact HR directly for details on this matter.",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        26,
+        35,
+        39,
+        41
+      ],
+      "latency_s": 2.66,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states the handbook does not mention ESOPs or stock options and refers the question to HR, as required."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The provided context does not mention ESOPs or stock options, so the answer is supported."
+        }
+      }
+    },
+    {
+      "id": "N02",
+      "split": "core",
+      "category": "not_in_handbook",
+      "question": "How many days of sabbatical leave can I take?",
+      "repeat": 0,
+      "answer": "The handbook does not mention sabbatical leave. Please contact HR for information on sabbatical leave policies.",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        18,
+        19,
+        20
+      ],
+      "latency_s": 2.43,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states the handbook does not mention sabbatical leave and refers the employee to HR, as required."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The context does not mention sabbatical leave, so the answer is correct."
+        }
+      }
+    },
+    {
+      "id": "N02",
+      "split": "core",
+      "category": "not_in_handbook",
+      "question": "How many days of sabbatical leave can I take?",
+      "repeat": 1,
+      "answer": "The handbook does not mention sabbatical leave. Please contact HR for information regarding sabbatical leave.",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        18,
+        19,
+        20
+      ],
+      "latency_s": 2.18,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states the handbook does not mention sabbatical leave and suggests contacting HR, as required."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The context does not mention sabbatical leave."
+        }
+      }
+    },
+    {
+      "id": "N02",
+      "split": "core",
+      "category": "not_in_handbook",
+      "question": "How many days of sabbatical leave can I take?",
+      "repeat": 2,
+      "answer": "The handbook does not mention sabbatical leave. Please ask HR for details on sabbatical leave.",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        18,
+        19,
+        20
+      ],
+      "latency_s": 2.03,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states the handbook does not mention sabbatical leave and suggests asking HR, as required."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The context does not mention sabbatical leave."
+        }
+      }
+    },
+    {
+      "id": "N03",
+      "split": "core",
+      "category": "not_in_handbook",
+      "question": "What relocation allowance do I get if the company transfers me to another city?",
+      "repeat": 0,
+      "answer": "The handbook does not provide information about a relocation allowance for transfers to another city. Please contact HR for details on relocation support.",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        45,
+        47
+      ],
+      "latency_s": 2.16,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states the handbook does not cover relocation allowance and refers the employee to HR, as required."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The context does not mention any relocation allowance, so the answer is correct."
+        }
+      }
+    },
+    {
+      "id": "N03",
+      "split": "core",
+      "category": "not_in_handbook",
+      "question": "What relocation allowance do I get if the company transfers me to another city?",
+      "repeat": 1,
+      "answer": "The handbook does not provide information about a relocation allowance for transfers to another city. Please contact HR for details on relocation support.",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        45,
+        47
+      ],
+      "latency_s": 2.01,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states the handbook does not cover relocation allowance and refers the employee to HR without inventing details."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The context does not mention any relocation allowance, so the answer is correct."
+        }
+      }
+    },
+    {
+      "id": "N03",
+      "split": "core",
+      "category": "not_in_handbook",
+      "question": "What relocation allowance do I get if the company transfers me to another city?",
+      "repeat": 2,
+      "answer": "The handbook does not provide information about a relocation allowance for transfers to another city. Please contact HR for details on relocation support.",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        45,
+        47
+      ],
+      "latency_s": 2.3,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states the handbook does not cover relocation allowance and refers the employee to HR, as required."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The context does not mention any relocation allowance, so the answer is correct."
+        }
+      }
+    },
+    {
+      "id": "XN01",
+      "split": "challenge",
+      "category": "not_in_handbook",
+      "question": "Can I be paid part of my salary in cryptocurrency?",
+      "repeat": 0,
+      "answer": "The handbook does not mention payment of salary in cryptocurrency. Salary is credited via direct bank transfer (NEFT) to your registered salary account in Indian Rupees (₹). For further clarification, please contact HR.",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        22,
+        24,
+        25,
+        54
+      ],
+      "latency_s": 2.24,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states the handbook does not mention cryptocurrency payments and suggests contacting HR."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The answer correctly states that salary is paid via direct bank transfer in Indian Rupees, as supported by the context, and does not mention cryptocurrency."
+        }
+      }
+    },
+    {
+      "id": "XN01",
+      "split": "challenge",
+      "category": "not_in_handbook",
+      "question": "Can I be paid part of my salary in cryptocurrency?",
+      "repeat": 1,
+      "answer": "The handbook does not mention payment of salary in cryptocurrency. Salary is credited via direct bank transfer (NEFT) to your registered salary account in Indian Rupees (₹). For further clarification, please contact HR. \n\nSource: Handbook, page 22",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        22,
+        24,
+        25,
+        54
+      ],
+      "latency_s": 2.4,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 0.0,
+          "detail": "The answer incorrectly states that salary is credited only via NEFT in INR, which is not specified in the reference; it should have only noted the lack of policy and suggested contacting HR."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The answer correctly states that salary is paid via direct bank transfer in Indian Rupees and does not mention cryptocurrency, which matches the context."
+        }
+      }
+    },
+    {
+      "id": "XN01",
+      "split": "challenge",
+      "category": "not_in_handbook",
+      "question": "Can I be paid part of my salary in cryptocurrency?",
+      "repeat": 2,
+      "answer": "The handbook does not mention payment of salary in cryptocurrency. Salary is credited via direct bank transfer (NEFT) to your registered salary account in Indian Rupees (₹). For further clarification, please contact HR.",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        22,
+        24,
+        25,
+        54
+      ],
+      "latency_s": 2.41,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states the handbook does not mention cryptocurrency payments and suggests contacting HR."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The answer correctly states that salary is paid via NEFT in Indian Rupees and does not mention cryptocurrency, as supported by the context."
+        }
+      }
+    },
+    {
+      "id": "XN02",
+      "split": "challenge",
+      "category": "not_in_handbook",
+      "question": "Does PROITBRIDGE sponsor work visas for employees who move abroad?",
+      "repeat": 0,
+      "answer": "The handbook does not provide information about PROITBRIDGE sponsoring work visas for employees moving abroad. Please contact HR directly for details on this matter.",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        1,
+        26,
+        35,
+        39
+      ],
+      "latency_s": 2.36,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states the handbook does not mention visa sponsorship and advises contacting HR, as required."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The context does not contain any information about work visa sponsorship for employees moving abroad."
+        }
+      }
+    },
+    {
+      "id": "XN02",
+      "split": "challenge",
+      "category": "not_in_handbook",
+      "question": "Does PROITBRIDGE sponsor work visas for employees who move abroad?",
+      "repeat": 1,
+      "answer": "The handbook does not provide information about PROITBRIDGE sponsoring work visas for employees moving abroad. Please contact HR directly for details on this matter.",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        1,
+        26,
+        35,
+        39
+      ],
+      "latency_s": 2.3,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states the handbook does not mention visa sponsorship and advises contacting HR, as required."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The context does not contain any information about PROITBRIDGE sponsoring work visas for employees moving abroad."
+        }
+      }
+    },
+    {
+      "id": "XN02",
+      "split": "challenge",
+      "category": "not_in_handbook",
+      "question": "Does PROITBRIDGE sponsor work visas for employees who move abroad?",
+      "repeat": 2,
+      "answer": "The handbook does not provide information about PROITBRIDGE sponsoring work visas for employees moving abroad. Please contact HR directly for details on this matter.",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        1,
+        26,
+        35,
+        39
+      ],
+      "latency_s": 2.18,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states the handbook does not mention visa sponsorship and advises contacting HR, as required."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The context does not contain any information about work visa sponsorship, so the answer is correct."
+        }
+      }
+    }
+  ]
+}

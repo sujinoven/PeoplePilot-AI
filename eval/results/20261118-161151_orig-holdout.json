@@ -1,0 +1,4187 @@
+{
+  "label": "orig-holdout",
+  "timestamp": "20261118-161151",
+  "git_commit": "54120bb",
+  "config": {
+    "llm_model": "gpt-4.1-mini",
+    "embedding_model": "text-embedding-3-small",
+    "chunk_size": 1000,
+    "chunk_overlap": 150,
+    "retriever_k": 4,
+    "source_hash": "3829bd4f87",
+    "src_uncommitted_changes": true,
+    "judge_model": "gpt-4.1"
+  },
+  "judge_enabled": true,
+  "summary": {
+    "overall": {
+      "routing": {
+        "n": 66,
+        "passed": 60,
+        "rate": 0.9091
+      },
+      "tool_choice": {
+        "n": 66,
+        "passed": 66,
+        "rate": 1.0
+      },
+      "retrieval_hit": {
+        "n": 30,
+        "passed": 24,
+        "rate": 0.8
+      },
+      "citation": {
+        "n": 30,
+        "passed": 24,
+        "rate": 0.8
+      },
+      "citation_precise": {
+        "n": 30,
+        "passed": 23,
+        "rate": 0.7667
+      },
+      "answer_correct": {
+        "n": 66,
+        "passed": 58,
+        "rate": 0.8788
+      },
+      "faithful": {
+        "n": 30,
+        "passed": 30,
+        "rate": 1.0
+      },
+      "tool_args": {
+        "n": 18,
+        "passed": 18,
+        "rate": 1.0
+      },
+      "must_include": {
+        "n": 3,
+        "passed": 3,
+        "rate": 1.0
+      },
+      "clarification": {
+        "n": 6,
+        "passed": 6,
+        "rate": 1.0
+      }
+    },
+    "by_split": {
+      "holdout": {
+        "routing": {
+          "n": 66,
+          "passed": 60,
+          "rate": 0.9091
+        },
+        "tool_choice": {
+          "n": 66,
+          "passed": 66,
+          "rate": 1.0
+        },
+        "retrieval_hit": {
+          "n": 30,
+          "passed": 24,
+          "rate": 0.8
+        },
+        "citation": {
+          "n": 30,
+          "passed": 24,
+          "rate": 0.8
+        },
+        "citation_precise": {
+          "n": 30,
+          "passed": 23,
+          "rate": 0.7667
+        },
+        "answer_correct": {
+          "n": 66,
+          "passed": 58,
+          "rate": 0.8788
+        },
+        "faithful": {
+          "n": 30,
+          "passed": 30,
+          "rate": 1.0
+        },
+        "tool_args": {
+          "n": 18,
+          "passed": 18,
+          "rate": 1.0
+        },
+        "must_include": {
+          "n": 3,
+          "passed": 3,
+          "rate": 1.0
+        },
+        "clarification": {
+          "n": 6,
+          "passed": 6,
+          "rate": 1.0
+        }
+      }
+    },
+    "by_category": {
+      "policy": {
+        "routing": {
+          "n": 30,
+          "passed": 24,
+          "rate": 0.8
+        },
+        "tool_choice": {
+          "n": 30,
+          "passed": 30,
+          "rate": 1.0
+        },
+        "retrieval_hit": {
+          "n": 30,
+          "passed": 24,
+          "rate": 0.8
+        },
+        "citation": {
+          "n": 30,
+          "passed": 24,
+          "rate": 0.8
+        },
+        "citation_precise": {
+          "n": 30,
+          "passed": 23,
+          "rate": 0.7667
+        },
+        "answer_correct": {
+          "n": 30,
+          "passed": 23,
+          "rate": 0.7667
+        },
+        "faithful": {
+          "n": 24,
+          "passed": 24,
+          "rate": 1.0
+        }
+      },
+      "not_in_handbook": {
+        "routing": {
+          "n": 6,
+          "passed": 6,
+          "rate": 1.0
+        },
+        "tool_choice": {
+          "n": 6,
+          "passed": 6,
+          "rate": 1.0
+        },
+        "answer_correct": {
+          "n": 6,
+          "passed": 5,
+          "rate": 0.8333
+        },
+        "faithful": {
+          "n": 6,
+          "passed": 6,
+          "rate": 1.0
+        }
+      },
+      "action": {
+        "routing": {
+          "n": 18,
+          "passed": 18,
+          "rate": 1.0
+        },
+        "tool_choice": {
+          "n": 18,
+          "passed": 18,
+          "rate": 1.0
+        },
+        "tool_args": {
+          "n": 18,
+          "passed": 18,
+          "rate": 1.0
+        },
+        "must_include": {
+          "n": 3,
+          "passed": 3,
+          "rate": 1.0
+        },
+        "answer_correct": {
+          "n": 18,
+          "passed": 18,
+          "rate": 1.0
+        }
+      },
+      "needs_clarification": {
+        "routing": {
+          "n": 6,
+          "passed": 6,
+          "rate": 1.0
+        },
+        "tool_choice": {
+          "n": 6,
+          "passed": 6,
+          "rate": 1.0
+        },
+        "clarification": {
+          "n": 6,
+          "passed": 6,
+          "rate": 1.0
+        },
+        "answer_correct": {
+          "n": 6,
+          "passed": 6,
+          "rate": 1.0
+        }
+      },
+      "out_of_scope": {
+        "routing": {
+          "n": 6,
+          "passed": 6,
+          "rate": 1.0
+        },
+        "tool_choice": {
+          "n": 6,
+          "passed": 6,
+          "rate": 1.0
+        },
+        "answer_correct": {
+          "n": 6,
+          "passed": 6,
+          "rate": 1.0
+        }
+      }
+    },
+    "latency_s": {
+      "mean": 2.64,
+      "p50": 2.64,
+      "p95": 3.9
+    },
+    "runs": 66,
+    "errors": 0
+  },
+  "cases": [
+    {
+      "id": "H01",
+      "split": "holdout",
+      "category": "policy",
+      "question": "How many days of leave do I get if my father passes away?",
+      "repeat": 0,
+      "answer": "You are entitled to 5 days of Bereavement Leave on the death of a parent, including your father. This leave can be taken as needed without documentation and will be approved by your manager. \n\nSource: Handbook, page 20",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        18,
+        20
+      ],
+      "latency_s": 3.08,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states 5 days of bereavement leave for the death of a parent and matches all key details from the reference."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "All details about bereavement leave, including duration, eligible relations, and lack of documentation, are supported by the context."
+        }
+      }
+    },
+    {
+      "id": "H01",
+      "split": "holdout",
+      "category": "policy",
+      "question": "How many days of leave do I get if my father passes away?",
+      "repeat": 1,
+      "answer": "You are entitled to 5 days of Bereavement Leave on the death of a parent. This leave can be taken as needed without documentation, and your manager will approve it. \n\nSource: Handbook, page 20",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        18,
+        20
+      ],
+      "latency_s": 3.11,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states 5 days of bereavement leave for the death of a parent, matching the reference."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "All details about bereavement leave for the death of a parent, duration, and lack of documentation are supported by the context."
+        }
+      }
+    },
+    {
+      "id": "H01",
+      "split": "holdout",
+      "category": "policy",
+      "question": "How many days of leave do I get if my father passes away?",
+      "repeat": 2,
+      "answer": "You are entitled to 5 days of Bereavement Leave on the death of a parent. This leave can be taken as needed without documentation, and your manager will approve it. \n\nSource: Handbook, page 20",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        18,
+        20
+      ],
+      "latency_s": 2.81,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states 5 days of bereavement leave for the death of a parent, matching the reference."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "All details about bereavement leave for the death of a parent, duration, and documentation are supported by the context."
+        }
+      }
+    },
+    {
+      "id": "H02",
+      "split": "holdout",
+      "category": "policy",
+      "question": "How much notice do I need to give to take marriage leave?",
+      "repeat": 0,
+      "answer": "You need to apply for marriage leave at least 30 days in advance. \n\nSource: Handbook, page 20",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        18,
+        19,
+        20
+      ],
+      "latency_s": 2.57,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states that 30 days' notice is required, matching the reference."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The answer correctly states that marriage leave must be applied for at least 30 days in advance, as supported by the context."
+        }
+      }
+    },
+    {
+      "id": "H02",
+      "split": "holdout",
+      "category": "policy",
+      "question": "How much notice do I need to give to take marriage leave?",
+      "repeat": 1,
+      "answer": "You need to apply for marriage leave at least 30 days in advance. \n\nSource: Handbook, page 20",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        18,
+        19,
+        20
+      ],
+      "latency_s": 2.37,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states that 30 days' notice is required, matching the reference."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The answer is directly supported by the context, which states that marriage leave must be applied for at least 30 days in advance."
+        }
+      }
+    },
+    {
+      "id": "H02",
+      "split": "holdout",
+      "category": "policy",
+      "question": "How much notice do I need to give to take marriage leave?",
+      "repeat": 2,
+      "answer": "You need to apply for marriage leave at least 30 days in advance. \n\nSource: Handbook, page 20",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        18,
+        19,
+        20
+      ],
+      "latency_s": 2.65,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states that 30 days' notice is required, matching the reference."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The answer is directly supported by the context, which states that marriage leave must be applied for at least 30 days in advance."
+        }
+      }
+    },
+    {
+      "id": "H03",
+      "split": "holdout",
+      "category": "policy",
+      "question": "How long is compensatory off valid after I work on a weekly off?",
+      "repeat": 0,
+      "answer": "Compensatory off earned for work on a weekly off is valid for 90 days. It is credited within 3 working days and must be pre-approved by your manager before the extra work. \n\nSource: Handbook, pages 17, 18",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        17,
+        18,
+        21
+      ],
+      "latency_s": 2.76,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": 0.0,
+          "detail": "cited wrong pages [18]"
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer matches the reference on validity period, credit timeline, and pre-approval requirement."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "All factual claims about compensatory off (validity, credit timeline, pre-approval) are directly supported by the context."
+        }
+      }
+    },
+    {
+      "id": "H03",
+      "split": "holdout",
+      "category": "policy",
+      "question": "How long is compensatory off valid after I work on a weekly off?",
+      "repeat": 1,
+      "answer": "Compensatory off earned for work on a weekly off is valid for 90 days. \n\nSource: Handbook, page 17",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        17,
+        18,
+        21
+      ],
+      "latency_s": 2.56,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 0.0,
+          "detail": "The answer omits that compensatory off is credited within 3 working days and must be pre-approved by the manager."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The handbook explicitly states that compensatory off is valid for 90 days."
+        }
+      }
+    },
+    {
+      "id": "H03",
+      "split": "holdout",
+      "category": "policy",
+      "question": "How long is compensatory off valid after I work on a weekly off?",
+      "repeat": 2,
+      "answer": "Compensatory off earned for work on a weekly off is valid for 90 days. It is credited within 3 working days and must be pre-approved by your manager before the extra work. \n\nSource: Handbook, page 17",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        17,
+        18,
+        21
+      ],
+      "latency_s": 2.68,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer matches the reference on validity period, credit timeline, and pre-approval requirement."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "All factual claims about compensatory off are directly supported by the handbook excerpts."
+        }
+      }
+    },
+    {
+      "id": "H04",
+      "split": "holdout",
+      "category": "policy",
+      "question": "What is the yearly learning budget for a Grade 3 Lead, and does it carry forward?",
+      "repeat": 0,
+      "answer": "The yearly learning budget for a Grade 3 Lead is ₹60,000. This budget is per financial year and does not carry forward. \n\nSource: Handbook, page 30",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        26,
+        30,
+        31
+      ],
+      "latency_s": 2.56,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states the yearly budget amount, the grade, and that it does not carry forward."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "All factual claims about the Grade 3 Lead's annual learning budget and its conditions are supported by the context."
+        }
+      }
+    },
+    {
+      "id": "H04",
+      "split": "holdout",
+      "category": "policy",
+      "question": "What is the yearly learning budget for a Grade 3 Lead, and does it carry forward?",
+      "repeat": 1,
+      "answer": "The yearly learning budget for a Grade 3 Lead is ₹60,000. This budget is per financial year and does not carry forward. \n\nSource: Handbook, page 30",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        26,
+        30,
+        31
+      ],
+      "latency_s": 2.56,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states the yearly budget amount and that it does not carry forward, matching the reference."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "All factual claims about the Grade 3 Lead's annual learning budget and its non-carry-forward policy are supported by the context."
+        }
+      }
+    },
+    {
+      "id": "H04",
+      "split": "holdout",
+      "category": "policy",
+      "question": "What is the yearly learning budget for a Grade 3 Lead, and does it carry forward?",
+      "repeat": 2,
+      "answer": "The yearly learning budget for a Grade 3 Lead is ₹60,000. This budget is per financial year and does not carry forward. \n\nSource: Handbook, page 30",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        26,
+        30,
+        31
+      ],
+      "latency_s": 2.56,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states the yearly budget amount and that it does not carry forward, matching the reference."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "All factual claims about the Grade 3 Lead's annual learning budget and its non-carry-forward policy are supported by the context."
+        }
+      }
+    },
+    {
+      "id": "H05",
+      "split": "holdout",
+      "category": "policy",
+      "question": "Can I accept a gift voucher from a client as a thank-you?",
+      "repeat": 0,
+      "answer": "No, you may never accept cash, gift cards, vouchers, or personal discounts from clients, regardless of the value. \n\nSource: Handbook, page 33",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        13,
+        17,
+        33,
+        46
+      ],
+      "latency_s": 2.37,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states that gift vouchers may never be accepted, matching the reference."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The answer accurately reflects the handbook's explicit prohibition on accepting cash, gift cards, vouchers, or personal discounts at any value."
+        }
+      }
+    },
+    {
+      "id": "H05",
+      "split": "holdout",
+      "category": "policy",
+      "question": "Can I accept a gift voucher from a client as a thank-you?",
+      "repeat": 1,
+      "answer": "No, you may never accept cash, gift cards, vouchers, or personal discounts from clients, regardless of the value. \n\nSource: Handbook, page 33",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        13,
+        17,
+        33,
+        46
+      ],
+      "latency_s": 2.87,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states that gift vouchers may never be accepted, matching the reference."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The answer correctly states that cash, gift cards, vouchers, and personal discounts may never be accepted at any value, as supported by the context."
+        }
+      }
+    },
+    {
+      "id": "H05",
+      "split": "holdout",
+      "category": "policy",
+      "question": "Can I accept a gift voucher from a client as a thank-you?",
+      "repeat": 2,
+      "answer": "No, you may never accept cash, gift cards, vouchers, or personal discounts from clients, regardless of the value. \n\nSource: Handbook, page 33",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        13,
+        17,
+        33,
+        46
+      ],
+      "latency_s": 2.46,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states that gift vouchers may never be accepted, matching the reference."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The answer accurately reflects the handbook's explicit prohibition on accepting cash, gift cards, vouchers, or personal discounts at any value."
+        }
+      }
+    },
+    {
+      "id": "H06",
+      "split": "holdout",
+      "category": "policy",
+      "question": "Can I take up paid freelance work on weekends?",
+      "repeat": 0,
+      "answer": "Full-time employees may not take up any paid external work without written approval. Paid freelance work requires you to apply to your Function Head with a copy to HR for approval. This applies regardless of whether the work is on weekends or weekdays. \n\nSource: Handbook, page 13",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        13,
+        16,
+        17
+      ],
+      "latency_s": 2.92,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states that written approval is required from the Function Head with a copy to HR, matching the reference."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "All claims about paid external work requiring written approval and the application process are supported by the context."
+        }
+      }
+    },
+    {
+      "id": "H06",
+      "split": "holdout",
+      "category": "policy",
+      "question": "Can I take up paid freelance work on weekends?",
+      "repeat": 1,
+      "answer": "Full-time employees may not take up any paid external work without written approval. Paid freelance work requires you to apply to your Function Head with a copy to HR for approval. This applies regardless of whether the work is on weekends or weekdays. \n\nSource: Handbook, page 13",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        13,
+        16,
+        17
+      ],
+      "latency_s": 2.62,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states that written approval is required for paid freelance work, matching the reference."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "All factual claims about external paid work and the approval process are supported by the handbook excerpt."
+        }
+      }
+    },
+    {
+      "id": "H06",
+      "split": "holdout",
+      "category": "policy",
+      "question": "Can I take up paid freelance work on weekends?",
+      "repeat": 2,
+      "answer": "Full-time employees may not take up any paid external work without written approval. Paid freelance work requires you to apply to your Function Head with a copy to HR for approval. This applies regardless of whether the work is on weekends or weekdays. \n\nSource: Handbook, page 13",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        13,
+        16,
+        17
+      ],
+      "latency_s": 3.2,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states that written approval is required for paid freelance work, matching the reference."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "All factual claims about external paid work and the approval process are supported by the handbook excerpt."
+        }
+      }
+    },
+    {
+      "id": "H07",
+      "split": "holdout",
+      "category": "policy",
+      "question": "Can I paste a client's data into a free AI chatbot to summarise it?",
+      "repeat": 0,
+      "answer": "I can only help with PROITBRIDGE HR policy questions -- leave, probation, payroll, travel, reimbursements and allowances. Please ask me something related to the PROITBRIDGE Employee Handbook.",
+      "route": "out_of_scope",
+      "tool_calls": [],
+      "retrieved_pages": [],
+      "latency_s": 1.13,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 0.0,
+          "detail": "expected policy_question, got out_of_scope"
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 0.0,
+          "detail": "nothing retrieved (question did not reach the policy path)"
+        },
+        "citation": {
+          "score": 0.0,
+          "detail": "no page cited"
+        },
+        "citation_precise": {
+          "score": 0.0,
+          "detail": "no page cited"
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 0.0,
+          "detail": "The answer avoids the question instead of stating that pasting client data into a free AI chatbot is not allowed."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H07",
+      "split": "holdout",
+      "category": "policy",
+      "question": "Can I paste a client's data into a free AI chatbot to summarise it?",
+      "repeat": 1,
+      "answer": "I can only help with PROITBRIDGE HR policy questions -- leave, probation, payroll, travel, reimbursements and allowances. Please ask me something related to the PROITBRIDGE Employee Handbook.",
+      "route": "out_of_scope",
+      "tool_calls": [],
+      "retrieved_pages": [],
+      "latency_s": 1.14,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 0.0,
+          "detail": "expected policy_question, got out_of_scope"
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 0.0,
+          "detail": "nothing retrieved (question did not reach the policy path)"
+        },
+        "citation": {
+          "score": 0.0,
+          "detail": "no page cited"
+        },
+        "citation_precise": {
+          "score": 0.0,
+          "detail": "no page cited"
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 0.0,
+          "detail": "The answer avoids the question instead of stating that pasting client data into a free AI chatbot is not allowed."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H07",
+      "split": "holdout",
+      "category": "policy",
+      "question": "Can I paste a client's data into a free AI chatbot to summarise it?",
+      "repeat": 2,
+      "answer": "I can only help with PROITBRIDGE HR policy questions -- leave, probation, payroll, travel, reimbursements and allowances. Please ask me something related to the PROITBRIDGE Employee Handbook.",
+      "route": "out_of_scope",
+      "tool_calls": [],
+      "retrieved_pages": [],
+      "latency_s": 1.01,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 0.0,
+          "detail": "expected policy_question, got out_of_scope"
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 0.0,
+          "detail": "nothing retrieved (question did not reach the policy path)"
+        },
+        "citation": {
+          "score": 0.0,
+          "detail": "no page cited"
+        },
+        "citation_precise": {
+          "score": 0.0,
+          "detail": "no page cited"
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 0.0,
+          "detail": "The answer avoids the question instead of stating that pasting client data into a free AI chatbot is not allowed."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H08",
+      "split": "holdout",
+      "category": "policy",
+      "question": "What happens if my manager doesn't respond to my leave application?",
+      "repeat": 0,
+      "answer": "If your manager does not approve or reject your leave application within 5 working days, the application escalates automatically to the next level in the HRMS for approval. \n\nSource: Handbook, page 53",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        18,
+        21,
+        53
+      ],
+      "latency_s": 2.56,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states that after 5 working days without action, the application escalates automatically to the next level, matching the reference."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The answer is directly supported by the context on page 53."
+        }
+      }
+    },
+    {
+      "id": "H08",
+      "split": "holdout",
+      "category": "policy",
+      "question": "What happens if my manager doesn't respond to my leave application?",
+      "repeat": 1,
+      "answer": "If your manager does not approve or reject your leave application within 5 working days, the application escalates automatically to the next level in the HRMS. \n\nSource: Handbook, page 53",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        18,
+        21,
+        53
+      ],
+      "latency_s": 2.79,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states that after 5 working days without action, the application escalates automatically to the next level."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The answer is directly supported by the context on page 53."
+        }
+      }
+    },
+    {
+      "id": "H08",
+      "split": "holdout",
+      "category": "policy",
+      "question": "What happens if my manager doesn't respond to my leave application?",
+      "repeat": 2,
+      "answer": "If your manager does not approve or reject your leave application within 5 working days, the application escalates automatically to the next level in the HRMS. \n\nSource: Handbook, page 53",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        18,
+        21,
+        53
+      ],
+      "latency_s": 2.62,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states that after 5 working days without action, the application escalates automatically to the next level."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The answer is directly supported by the context on page 53."
+        }
+      }
+    },
+    {
+      "id": "H09",
+      "split": "holdout",
+      "category": "policy",
+      "question": "My grievance is about my own manager. Do I still have to go to my manager first?",
+      "repeat": 0,
+      "answer": "No, if your grievance concerns your own manager, you may skip the level of approaching your manager and raise the grievance directly at a higher level. \n\nSource: Handbook, page 43",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        41,
+        43,
+        44
+      ],
+      "latency_s": 2.63,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states that the employee may skip their manager if the grievance concerns their manager, matching the reference."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The context explicitly states that you may skip levels if the grievance concerns your own manager."
+        }
+      }
+    },
+    {
+      "id": "H09",
+      "split": "holdout",
+      "category": "policy",
+      "question": "My grievance is about my own manager. Do I still have to go to my manager first?",
+      "repeat": 1,
+      "answer": "No, if your grievance concerns your own manager, you may skip the first level and directly approach the appropriate level as per the grievance procedure. This also applies to cases involving harassment, fraud, safety, or legal violations. \n\nSource: Handbook, page 43",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        41,
+        43,
+        44
+      ],
+      "latency_s": 2.94,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states that you may skip your manager if the grievance concerns them, matching the reference."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The answer accurately reflects the handbook's guidance that employees may skip levels if the grievance concerns their own manager or involves harassment, fraud, safety, or legal violations."
+        }
+      }
+    },
+    {
+      "id": "H09",
+      "split": "holdout",
+      "category": "policy",
+      "question": "My grievance is about my own manager. Do I still have to go to my manager first?",
+      "repeat": 2,
+      "answer": "No, if your grievance concerns your own manager, you may skip the first level and directly approach the appropriate higher level as per the grievance procedure. \n\nSource: Handbook, page 43",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        41,
+        43,
+        44
+      ],
+      "latency_s": 2.56,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states that the employee may skip their manager if the grievance concerns them, matching the reference."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The context explicitly states that you may skip levels if the grievance concerns your own manager."
+        }
+      }
+    },
+    {
+      "id": "H10",
+      "split": "holdout",
+      "category": "policy",
+      "question": "If I take 6 days of earned leave over a weekend, do the Saturday and Sunday count as leave?",
+      "repeat": 0,
+      "answer": "To provide an accurate answer, I need to know if you are currently on probation and how many working days of advance notice you have given for this leave request. Could you please provide this information?",
+      "route": "hr_action",
+      "tool_calls": [],
+      "retrieved_pages": [],
+      "latency_s": 2.05,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 0.0,
+          "detail": "expected policy_question, got hr_action"
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 0.0,
+          "detail": "nothing retrieved (question did not reach the policy path)"
+        },
+        "citation": {
+          "score": 0.0,
+          "detail": "no page cited"
+        },
+        "citation_precise": {
+          "score": 0.0,
+          "detail": "no page cited"
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 0.0,
+          "detail": "The answer fails to state that for Earned Leave of 4 days or more, weekends are counted as leave, as specified in the reference."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H10",
+      "split": "holdout",
+      "category": "policy",
+      "question": "If I take 6 days of earned leave over a weekend, do the Saturday and Sunday count as leave?",
+      "repeat": 1,
+      "answer": "To provide an accurate answer, I need to know if you are currently on probation and how many working days of advance notice you have given for this leave request. Could you please provide this information?",
+      "route": "hr_action",
+      "tool_calls": [],
+      "retrieved_pages": [],
+      "latency_s": 2.04,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 0.0,
+          "detail": "expected policy_question, got hr_action"
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 0.0,
+          "detail": "nothing retrieved (question did not reach the policy path)"
+        },
+        "citation": {
+          "score": 0.0,
+          "detail": "no page cited"
+        },
+        "citation_precise": {
+          "score": 0.0,
+          "detail": "no page cited"
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 0.0,
+          "detail": "The answer fails to state that for earned leave of 4 days or more, weekends are counted as leave, as specified in the reference."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H10",
+      "split": "holdout",
+      "category": "policy",
+      "question": "If I take 6 days of earned leave over a weekend, do the Saturday and Sunday count as leave?",
+      "repeat": 2,
+      "answer": "To provide you with an accurate answer, I need to know if you are currently on probation and how many working days of advance notice you plan to give for this leave request. Could you please provide this information?",
+      "route": "hr_action",
+      "tool_calls": [],
+      "retrieved_pages": [],
+      "latency_s": 2.15,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 0.0,
+          "detail": "expected policy_question, got hr_action"
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": 0.0,
+          "detail": "nothing retrieved (question did not reach the policy path)"
+        },
+        "citation": {
+          "score": 0.0,
+          "detail": "no page cited"
+        },
+        "citation_precise": {
+          "score": 0.0,
+          "detail": "no page cited"
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 0.0,
+          "detail": "The answer fails to state that for earned leave of 4 days or more, weekends are counted as leave, as specified in the reference."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H11",
+      "split": "holdout",
+      "category": "not_in_handbook",
+      "question": "Does PROITBRIDGE give a fuel or car allowance to employees?",
+      "repeat": 0,
+      "answer": "The handbook does not mention any fuel or car allowance for employees. \n\nSource: Handbook, pages 26, 33, 41, 45",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        26,
+        33,
+        41,
+        45
+      ],
+      "latency_s": 2.76,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states the handbook does not mention a fuel or car allowance and does not invent a policy."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "There is no mention of fuel or car allowance in the provided handbook excerpts."
+        }
+      }
+    },
+    {
+      "id": "H11",
+      "split": "holdout",
+      "category": "not_in_handbook",
+      "question": "Does PROITBRIDGE give a fuel or car allowance to employees?",
+      "repeat": 1,
+      "answer": "The handbook does not mention any fuel or car allowance for employees. \n\nSource: Handbook, pages 26, 33, 41, 45",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        26,
+        33,
+        41,
+        45
+      ],
+      "latency_s": 2.43,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states the handbook does not mention a fuel or car allowance and does not invent a policy."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "There is no mention of fuel or car allowance in the provided handbook excerpts."
+        }
+      }
+    },
+    {
+      "id": "H11",
+      "split": "holdout",
+      "category": "not_in_handbook",
+      "question": "Does PROITBRIDGE give a fuel or car allowance to employees?",
+      "repeat": 2,
+      "answer": "The handbook does not mention any fuel or car allowance for employees. \n\nSource: Handbook, pages 26, 33, 41, 45",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        26,
+        33,
+        41,
+        45
+      ],
+      "latency_s": 2.66,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states the handbook does not mention a fuel or car allowance and does not invent a policy."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "There is no mention of a fuel or car allowance in the provided handbook excerpts."
+        }
+      }
+    },
+    {
+      "id": "H12",
+      "split": "holdout",
+      "category": "not_in_handbook",
+      "question": "How many days of menstrual leave can I take each month?",
+      "repeat": 0,
+      "answer": "The handbook does not mention any provision for menstrual leave. Therefore, no specific menstrual leave days are provided. \n\nSource: Handbook, pages 18-19",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        18,
+        19
+      ],
+      "latency_s": 2.46,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states that the handbook does not mention menstrual leave and does not invent a policy."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The context does not mention menstrual leave, so the answer is correct."
+        }
+      }
+    },
+    {
+      "id": "H12",
+      "split": "holdout",
+      "category": "not_in_handbook",
+      "question": "How many days of menstrual leave can I take each month?",
+      "repeat": 1,
+      "answer": "The handbook does not mention any provision for menstrual leave. For specific policies on this, please consult HR directly.",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        18,
+        19
+      ],
+      "latency_s": 2.87,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states the handbook does not mention menstrual leave and suggests consulting HR, as required."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The context does not mention menstrual leave, so the answer is correct."
+        }
+      }
+    },
+    {
+      "id": "H12",
+      "split": "holdout",
+      "category": "not_in_handbook",
+      "question": "How many days of menstrual leave can I take each month?",
+      "repeat": 2,
+      "answer": "The handbook does not mention any specific entitlement for menstrual leave. For illness-related leave, you may use Sick Leave (SL), which is 10 days per year, and can be used for your own illness or medical needs. \n\nSource: Handbook, pages 18, 19",
+      "route": "policy_question",
+      "tool_calls": [],
+      "retrieved_pages": [
+        18,
+        19
+      ],
+      "latency_s": 3.28,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 0.0,
+          "detail": "The answer invents a sick leave policy instead of just stating that menstrual leave is not covered and suggesting to ask HR."
+        },
+        "faithful": {
+          "score": 1.0,
+          "detail": "The handbook excerpts do not mention menstrual leave and confirm the details about Sick Leave as stated in the answer."
+        }
+      }
+    },
+    {
+      "id": "H13",
+      "split": "holdout",
+      "category": "action",
+      "question": "I'm a confirmed employee and I want 5 days of casual leave next month. I'll apply 10 working days ahead. Is that okay?",
+      "repeat": 0,
+      "answer": "Your request for 5 days of Casual Leave is not allowed because Casual Leave cannot exceed 3 consecutive days as per policy [Chapter 7.3]. You may consider applying for Earned Leave if you need more days.",
+      "route": "hr_action",
+      "tool_calls": [
+        {
+          "id": "call_QpmRv5PV8eCwV41ZmtSwM3yG",
+          "name": "validate_leave_request",
+          "args": {
+            "leave_type": "CL",
+            "days": 5,
+            "is_on_probation": false,
+            "advance_days": 10
+          }
+        }
+      ],
+      "retrieved_pages": [
+        18,
+        21
+      ],
+      "latency_s": 3.99,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states that 5 days of casual leave is not allowed and cites the 3-day limit, matching the reference."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H13",
+      "split": "holdout",
+      "category": "action",
+      "question": "I'm a confirmed employee and I want 5 days of casual leave next month. I'll apply 10 working days ahead. Is that okay?",
+      "repeat": 1,
+      "answer": "Your request for 5 days of Casual Leave is not allowed because Casual Leave cannot exceed 3 consecutive days as per policy (Chapter 7.3). You may consider applying for Earned Leave if you need more days.",
+      "route": "hr_action",
+      "tool_calls": [
+        {
+          "id": "call_qClGgDj3vxk5gRfUVSjXiT6M",
+          "name": "validate_leave_request",
+          "args": {
+            "leave_type": "CL",
+            "days": 5,
+            "is_on_probation": false,
+            "advance_days": 10
+          }
+        }
+      ],
+      "retrieved_pages": [
+        18,
+        21
+      ],
+      "latency_s": 3.57,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states that 5 days of casual leave is not allowed and cites the 3-day limit, matching the reference."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H13",
+      "split": "holdout",
+      "category": "action",
+      "question": "I'm a confirmed employee and I want 5 days of casual leave next month. I'll apply 10 working days ahead. Is that okay?",
+      "repeat": 2,
+      "answer": "Your request for 5 days of casual leave is not allowed because casual leave cannot exceed 3 consecutive days as per the policy (Chapter 7.3). You may consider applying for earned leave if you need more days.",
+      "route": "hr_action",
+      "tool_calls": [
+        {
+          "id": "call_6XHOpgsb8I50qA3icGSPy6dH",
+          "name": "validate_leave_request",
+          "args": {
+            "leave_type": "CL",
+            "days": 5,
+            "is_on_probation": false,
+            "advance_days": 10
+          }
+        }
+      ],
+      "retrieved_pages": [
+        18,
+        21
+      ],
+      "latency_s": 4.0,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states that 5 days of casual leave is not allowed and cites the 3-day limit, matching the reference."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H14",
+      "split": "holdout",
+      "category": "action",
+      "question": "I got back from a client trip 5 days ago. I have the approved travel request and scans of every bill. Can I claim Rs 12,000?",
+      "repeat": 0,
+      "answer": "Yes, you can claim Rs 12,000 for your client trip as it is within the 15-day submission window and you have the approved travel request and required documents. Your manager will approve it within 3 working days, and Finance will settle it with the next payroll cycle. This is according to policy Chapter 17.4.",
+      "route": "hr_action",
+      "tool_calls": [
+        {
+          "id": "call_BkFDu433XsWcWkVWPdUFQYry",
+          "name": "validate_reimbursement_claim",
+          "args": {
+            "days_since_return": 5,
+            "amount": 12000,
+            "has_approved_travel_request": true,
+            "has_required_documents": true
+          }
+        }
+      ],
+      "retrieved_pages": [],
+      "latency_s": 3.48,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer matches the reference on all key facts: claim is allowed, within the 15-day window, approvals are in place, and the process for manager and Finance is correct."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H14",
+      "split": "holdout",
+      "category": "action",
+      "question": "I got back from a client trip 5 days ago. I have the approved travel request and scans of every bill. Can I claim Rs 12,000?",
+      "repeat": 1,
+      "answer": "Yes, you can claim Rs 12,000 for your client trip as it is within the 15-day submission window and you have the approved travel request and required documents. Your manager will approve it within 3 working days, and Finance will settle it with the next payroll cycle. This is according to policy Chapter 17.4.",
+      "route": "hr_action",
+      "tool_calls": [
+        {
+          "id": "call_WBAhNlmi1ndYafpyK3DLcvW7",
+          "name": "validate_reimbursement_claim",
+          "args": {
+            "days_since_return": 5,
+            "amount": 12000,
+            "has_approved_travel_request": true,
+            "has_required_documents": true
+          }
+        }
+      ],
+      "retrieved_pages": [],
+      "latency_s": 3.89,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer matches the reference on all key facts: claim is allowed, within the window, approvals and process are correct."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H14",
+      "split": "holdout",
+      "category": "action",
+      "question": "I got back from a client trip 5 days ago. I have the approved travel request and scans of every bill. Can I claim Rs 12,000?",
+      "repeat": 2,
+      "answer": "Yes, you can claim Rs 12,000 for your client trip as it is within the 15-day submission window and you have the approved travel request and required documents. Your manager will approve it within 3 working days, and Finance will settle it with the next payroll cycle. This is according to policy Chapter 17.4.",
+      "route": "hr_action",
+      "tool_calls": [
+        {
+          "id": "call_qH0psx9LWBhNd0Zdvj6zHVTQ",
+          "name": "validate_reimbursement_claim",
+          "args": {
+            "days_since_return": 5,
+            "amount": 12000,
+            "has_approved_travel_request": true,
+            "has_required_documents": true
+          }
+        }
+      ],
+      "retrieved_pages": [],
+      "latency_s": 3.5,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer matches the reference on all key facts and provides correct additional detail."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H15",
+      "split": "holdout",
+      "category": "action",
+      "question": "I joined as a manager on 2026-06-15. What date does my probation end?",
+      "repeat": 0,
+      "answer": "Your probation as a manager who joined on 2026-06-15 will end on 2026-12-12. This is based on the standard 180 calendar days probation period for Manager and above, as per policy Chapter 4.5.",
+      "route": "hr_action",
+      "tool_calls": [
+        {
+          "id": "call_K1ilfU5XuSrd1GYoU388V3Gl",
+          "name": "calculate_probation_end",
+          "args": {
+            "joining_date": "2026-06-15",
+            "is_manager": true
+          }
+        }
+      ],
+      "retrieved_pages": [],
+      "latency_s": 3.93,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states the probation end date and the 180-day period, matching the reference."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H15",
+      "split": "holdout",
+      "category": "action",
+      "question": "I joined as a manager on 2026-06-15. What date does my probation end?",
+      "repeat": 1,
+      "answer": "Your probation period as a manager who joined on 2026-06-15 will end on 2026-12-12. This is based on the standard 180 calendar days probation for Manager and above, as per policy Chapter 4.5.",
+      "route": "hr_action",
+      "tool_calls": [
+        {
+          "id": "call_IAOOlFNGwqET0EC5zx5hso76",
+          "name": "calculate_probation_end",
+          "args": {
+            "joining_date": "2026-06-15",
+            "is_manager": true
+          }
+        }
+      ],
+      "retrieved_pages": [],
+      "latency_s": 3.58,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states the probation end date as 2026-12-12, matching the reference."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H15",
+      "split": "holdout",
+      "category": "action",
+      "question": "I joined as a manager on 2026-06-15. What date does my probation end?",
+      "repeat": 2,
+      "answer": "Your probation as a manager who joined on 2026-06-15 will end on 2026-12-12. This is based on the standard 180 calendar days probation period for Manager and above, as per policy Chapter 4.5.",
+      "route": "hr_action",
+      "tool_calls": [
+        {
+          "id": "call_OXLcU4ZUBGs1GEUwyRMxnsxm",
+          "name": "calculate_probation_end",
+          "args": {
+            "joining_date": "2026-06-15",
+            "is_manager": true
+          }
+        }
+      ],
+      "retrieved_pages": [],
+      "latency_s": 4.16,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states the probation end date and the 180-day policy for managers."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H16",
+      "split": "holdout",
+      "category": "action",
+      "question": "Today is 2026-11-12. Can I still submit payroll inputs this month?",
+      "repeat": 0,
+      "answer": "Yes, you can still submit payroll inputs this month. The payroll inputs are accepted until the 20th of November. (Policy reference: Chapter 8.1)",
+      "route": "hr_action",
+      "tool_calls": [
+        {
+          "id": "call_d2m1O3LN0kbiwIDJaG3wXTO1",
+          "name": "check_payroll_deadline",
+          "args": {
+            "date": "2026-11-12"
+          }
+        }
+      ],
+      "retrieved_pages": [],
+      "latency_s": 3.81,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states that payroll inputs are accepted until November 20, matching the reference."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H16",
+      "split": "holdout",
+      "category": "action",
+      "question": "Today is 2026-11-12. Can I still submit payroll inputs this month?",
+      "repeat": 1,
+      "answer": "Yes, you can still submit payroll inputs this month. The payroll inputs are accepted until the 20th of November. (Policy reference: Chapter 8.1)",
+      "route": "hr_action",
+      "tool_calls": [
+        {
+          "id": "call_Ix6jhAldV1cDcNiULceSfSvu",
+          "name": "check_payroll_deadline",
+          "args": {
+            "date": "2026-11-12"
+          }
+        }
+      ],
+      "retrieved_pages": [],
+      "latency_s": 3.22,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states that payroll inputs are accepted until November 20, matching the reference."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H16",
+      "split": "holdout",
+      "category": "action",
+      "question": "Today is 2026-11-12. Can I still submit payroll inputs this month?",
+      "repeat": 2,
+      "answer": "Yes, you can still submit payroll inputs this month. The payroll inputs are accepted until the 20th of November 2026. (Policy reference: Chapter 8.1)",
+      "route": "hr_action",
+      "tool_calls": [
+        {
+          "id": "call_bd9uYgn3ugs5vVPrZdxXgLeK",
+          "name": "check_payroll_deadline",
+          "args": {
+            "date": "2026-11-12"
+          }
+        }
+      ],
+      "retrieved_pages": [],
+      "latency_s": 3.05,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states that payroll inputs are accepted until November 20, 2026, matching the reference."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H17",
+      "split": "holdout",
+      "category": "action",
+      "question": "I'm Grade 4 and travelling to Singapore on business. What is my daily allowance?",
+      "repeat": 0,
+      "answer": "For your Grade 4 business travel to Singapore (Asia Middle East region), your daily travel allowance is 80 USD as per policy Chapter 17.3.",
+      "route": "hr_action",
+      "tool_calls": [
+        {
+          "id": "call_xKvFDxmuZjUBYmKpdPLndYHv",
+          "name": "calculate_travel_daily_allowance",
+          "args": {
+            "location_type": "asia_middle_east",
+            "grade": 4
+          }
+        }
+      ],
+      "retrieved_pages": [],
+      "latency_s": 3.9,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states that the daily allowance for Grade 4 in Singapore is USD 80, matching the reference."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H17",
+      "split": "holdout",
+      "category": "action",
+      "question": "I'm Grade 4 and travelling to Singapore on business. What is my daily allowance?",
+      "repeat": 1,
+      "answer": "For your Grade 4 business travel to Singapore (Asia Middle East region), your daily travel allowance is 80 USD as per policy Chapter 17.3.",
+      "route": "hr_action",
+      "tool_calls": [
+        {
+          "id": "call_AZSXuGWMxJS6F5iSqgvKIxBP",
+          "name": "calculate_travel_daily_allowance",
+          "args": {
+            "location_type": "asia_middle_east",
+            "grade": 4
+          }
+        }
+      ],
+      "retrieved_pages": [],
+      "latency_s": 3.06,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states the daily allowance of USD 80 for Grade 4 in Asia, matching the reference."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H17",
+      "split": "holdout",
+      "category": "action",
+      "question": "I'm Grade 4 and travelling to Singapore on business. What is my daily allowance?",
+      "repeat": 2,
+      "answer": "For your Grade 4 business travel to Singapore (Asia Middle East region), your daily travel allowance is 80 USD as per policy Chapter 17.3.",
+      "route": "hr_action",
+      "tool_calls": [
+        {
+          "id": "call_8yvXLQQA3O3PIA7xeCQRW2oY",
+          "name": "calculate_travel_daily_allowance",
+          "args": {
+            "location_type": "asia_middle_east",
+            "grade": 4
+          }
+        }
+      ],
+      "retrieved_pages": [],
+      "latency_s": 3.03,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states that the daily allowance for Grade 4 in Singapore is USD 80, matching the reference."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H18",
+      "split": "holdout",
+      "category": "action",
+      "question": "I've been here for 10 completed months. How many days of earned leave have I built up?",
+      "repeat": 0,
+      "answer": "You have accrued 15 days of Earned Leave after 10 completed months, as per policy Chapter 7.2.",
+      "route": "hr_action",
+      "tool_calls": [
+        {
+          "id": "call_zd572DyoRXWwQ2iY8GsfdfhE",
+          "name": "calculate_earned_leave_accrual",
+          "args": {
+            "completed_months": 10
+          }
+        }
+      ],
+      "retrieved_pages": [],
+      "latency_s": 3.24,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states that 10 completed months accrues 15 days of Earned Leave, matching the reference."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H18",
+      "split": "holdout",
+      "category": "action",
+      "question": "I've been here for 10 completed months. How many days of earned leave have I built up?",
+      "repeat": 1,
+      "answer": "After 10 completed months, you have accrued 15 days of Earned Leave as per policy Chapter 7.2.",
+      "route": "hr_action",
+      "tool_calls": [
+        {
+          "id": "call_cAoQNBU9Wne1m3aDLFWhhdKa",
+          "name": "calculate_earned_leave_accrual",
+          "args": {
+            "completed_months": 10
+          }
+        }
+      ],
+      "retrieved_pages": [],
+      "latency_s": 2.92,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states that 10 completed months accrues 15 days of Earned Leave, matching the reference."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H18",
+      "split": "holdout",
+      "category": "action",
+      "question": "I've been here for 10 completed months. How many days of earned leave have I built up?",
+      "repeat": 2,
+      "answer": "After 10 completed months, you have accrued 15 days of Earned Leave (EL) as per policy Chapter 7.2.",
+      "route": "hr_action",
+      "tool_calls": [
+        {
+          "id": "call_MT5thXJcaFlOFiPMbAxPqRpT",
+          "name": "calculate_earned_leave_accrual",
+          "args": {
+            "completed_months": 10
+          }
+        }
+      ],
+      "retrieved_pages": [],
+      "latency_s": 3.57,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states that 10 completed months accrues 15 days of Earned Leave, matching the reference."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H19",
+      "split": "holdout",
+      "category": "needs_clarification",
+      "question": "How many days of earned leave have I built up so far?",
+      "repeat": 0,
+      "answer": "To calculate your accrued earned leave, I need to know how many completed months you have worked so far. Could you please provide that information?",
+      "route": "hr_action",
+      "tool_calls": [],
+      "retrieved_pages": [],
+      "latency_s": 2.25,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly asks for the number of completed months of service as instructed by the reference."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H19",
+      "split": "holdout",
+      "category": "needs_clarification",
+      "question": "How many days of earned leave have I built up so far?",
+      "repeat": 1,
+      "answer": "To calculate your accrued earned leave, I need to know how many completed months you have worked so far. Could you please provide that information?",
+      "route": "hr_action",
+      "tool_calls": [],
+      "retrieved_pages": [],
+      "latency_s": 1.96,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly asks for the number of completed months of service as instructed by the reference."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H19",
+      "split": "holdout",
+      "category": "needs_clarification",
+      "question": "How many days of earned leave have I built up so far?",
+      "repeat": 2,
+      "answer": "To calculate your accrued earned leave, I need to know how many completed months you have worked so far. Could you please provide that information?",
+      "route": "hr_action",
+      "tool_calls": [],
+      "retrieved_pages": [],
+      "latency_s": 2.19,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly asks for the number of completed months of service as instructed by the reference."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H20",
+      "split": "holdout",
+      "category": "needs_clarification",
+      "question": "Can I still submit my payroll inputs this month?",
+      "repeat": 0,
+      "answer": "Please provide the current date or the date you want to check the payroll input deadline for, so I can verify if you can still submit your payroll inputs this month.",
+      "route": "hr_action",
+      "tool_calls": [],
+      "retrieved_pages": [],
+      "latency_s": 2.06,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly asks for the relevant date as instructed by the reference."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H20",
+      "split": "holdout",
+      "category": "needs_clarification",
+      "question": "Can I still submit my payroll inputs this month?",
+      "repeat": 1,
+      "answer": "To provide you with the accurate payroll input submission deadline for this month, could you please share the current date or the month and year you are referring to?",
+      "route": "hr_action",
+      "tool_calls": [],
+      "retrieved_pages": [],
+      "latency_s": 2.62,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly asks for the date as instructed by the reference."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H20",
+      "split": "holdout",
+      "category": "needs_clarification",
+      "question": "Can I still submit my payroll inputs this month?",
+      "repeat": 2,
+      "answer": "Please provide the current date or the date you want to check the payroll input deadline for, so I can verify the payroll cut-off and salary credit dates for you.",
+      "route": "hr_action",
+      "tool_calls": [],
+      "retrieved_pages": [],
+      "latency_s": 2.3,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly asks for the relevant date as instructed by the reference."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H21",
+      "split": "holdout",
+      "category": "out_of_scope",
+      "question": "What's the current price of Bitcoin?",
+      "repeat": 0,
+      "answer": "I can only help with PROITBRIDGE HR policy questions -- leave, probation, payroll, travel, reimbursements and allowances. Please ask me something related to the PROITBRIDGE Employee Handbook.",
+      "route": "out_of_scope",
+      "tool_calls": [],
+      "retrieved_pages": [],
+      "latency_s": 1.08,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states it only handles HR policy questions and does not answer the out-of-scope request."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H21",
+      "split": "holdout",
+      "category": "out_of_scope",
+      "question": "What's the current price of Bitcoin?",
+      "repeat": 1,
+      "answer": "I can only help with PROITBRIDGE HR policy questions -- leave, probation, payroll, travel, reimbursements and allowances. Please ask me something related to the PROITBRIDGE Employee Handbook.",
+      "route": "out_of_scope",
+      "tool_calls": [],
+      "retrieved_pages": [],
+      "latency_s": 0.92,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states it only handles HR policy questions and does not answer the out-of-scope request."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H21",
+      "split": "holdout",
+      "category": "out_of_scope",
+      "question": "What's the current price of Bitcoin?",
+      "repeat": 2,
+      "answer": "I can only help with PROITBRIDGE HR policy questions -- leave, probation, payroll, travel, reimbursements and allowances. Please ask me something related to the PROITBRIDGE Employee Handbook.",
+      "route": "out_of_scope",
+      "tool_calls": [],
+      "retrieved_pages": [],
+      "latency_s": 1.02,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states it only handles HR policy questions and does not answer the out-of-scope request."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H22",
+      "split": "holdout",
+      "category": "out_of_scope",
+      "question": "Tell me a joke about managers.",
+      "repeat": 0,
+      "answer": "I can only help with PROITBRIDGE HR policy questions -- leave, probation, payroll, travel, reimbursements and allowances. Please ask me something related to the PROITBRIDGE Employee Handbook.",
+      "route": "out_of_scope",
+      "tool_calls": [],
+      "retrieved_pages": [],
+      "latency_s": 1.03,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states it only helps with HR policy questions and does not answer the out-of-scope request."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H22",
+      "split": "holdout",
+      "category": "out_of_scope",
+      "question": "Tell me a joke about managers.",
+      "repeat": 1,
+      "answer": "I can only help with PROITBRIDGE HR policy questions -- leave, probation, payroll, travel, reimbursements and allowances. Please ask me something related to the PROITBRIDGE Employee Handbook.",
+      "route": "out_of_scope",
+      "tool_calls": [],
+      "retrieved_pages": [],
+      "latency_s": 0.99,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states it only helps with HR policy questions and does not attempt to answer the out-of-scope request."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    },
+    {
+      "id": "H22",
+      "split": "holdout",
+      "category": "out_of_scope",
+      "question": "Tell me a joke about managers.",
+      "repeat": 2,
+      "answer": "I can only help with PROITBRIDGE HR policy questions -- leave, probation, payroll, travel, reimbursements and allowances. Please ask me something related to the PROITBRIDGE Employee Handbook.",
+      "route": "out_of_scope",
+      "tool_calls": [],
+      "retrieved_pages": [],
+      "latency_s": 1.44,
+      "error": null,
+      "scores": {
+        "routing": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_choice": {
+          "score": 1.0,
+          "detail": ""
+        },
+        "tool_args": {
+          "score": null,
+          "detail": ""
+        },
+        "clarification": {
+          "score": null,
+          "detail": ""
+        },
+        "retrieval_hit": {
+          "score": null,
+          "detail": ""
+        },
+        "citation": {
+          "score": null,
+          "detail": ""
+        },
+        "citation_precise": {
+          "score": null,
+          "detail": ""
+        },
+        "must_include": {
+          "score": null,
+          "detail": ""
+        },
+        "answer_correct": {
+          "score": 1.0,
+          "detail": "The answer correctly states it only helps with HR policy questions and does not answer the out-of-scope request."
+        },
+        "faithful": {
+          "score": null,
+          "detail": ""
+        }
+      }
+    }
+  ]
+}
