@@ -1,0 +1,1 @@
+"""PeoplePilot web frontend package."""
